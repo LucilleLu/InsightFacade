@@ -1,0 +1,23 @@
+{
+    "query1": "simple query IS comparison for department with two columns and old order syntax",
+    "query2": "not, des, groups by, apply",
+    "query3": "any",
+    "query4": "any",
+    "query5": "none",
+    "query6": "no where clause",
+    "query7": "no columns clause",
+    "query8": "one column",
+    "query9": "no transformation",
+    "query10": "10",
+    "query11": "no column; two order keys des; no group; no transformation",
+    "query12": "a simple query with MComparison and a single order key",
+    "query13": "query with AND without order keys",
+    "query14": "query with AND of SComparison and MComparison",
+    "query15": "query with both room and course selected",
+    "query16": "query with single transformation",
+    "query17": "complex query with 3 trans",
+    "query18": "super complex query with aggregation on top of aggregation",
+    "query19": "super conplex query with order",
+    "query20": "testing room names"
+
+}

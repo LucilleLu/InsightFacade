@@ -1,0 +1,34 @@
+{
+    "title": "apply key has _ in it",
+    "query": {
+        "WHERE": {
+            "GT": {
+                "courses_avg": 70
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_title",
+                "overall_Avg"
+            ]
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "courses_title"
+            ],
+            "APPLY": [
+                {
+                    "overall_Avg": {
+                        "AVG": "courses_avg"
+                    }
+                }
+            ]
+        }
+    },
+    "response": {
+        "code": 400,
+        "body": {
+            "error":"apply key has _ in it"
+        }
+    }
+}

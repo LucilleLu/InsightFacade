@@ -1,0 +1,9 @@
+{
+    "title": "wrong formated / empty query",
+    "query": {}
+    ,
+    "response": {
+        "code": 400,
+        "body": {"error":"Query format is wrong"}
+    }
+}

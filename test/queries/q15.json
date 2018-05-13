@@ -1,0 +1,38 @@
+{
+    "title": "find coverage of all cases that with LT opt",
+    "query": {
+        "WHERE": {
+            "AND" : [
+                {
+                    "LT": {
+                        "courses_avg": 0
+                    }
+                },
+                {
+                    "LT": {
+                        "courses_pass":0
+                    }
+                },
+                {
+                    "LT": {
+                        "courses_fail":0
+                    }
+                },
+                {
+                    "LT": {
+                        "courses_audit":0
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": ["courses_dept", "courses_avg"],
+            "FORM": "TABLE"
+        }
+    }
+    ,
+    "response": {
+        "code": 200,
+        "body": {"result":[]}
+    }
+}

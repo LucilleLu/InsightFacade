@@ -1,0 +1,44 @@
+{
+    "title": "no such order option",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "LT": {
+                        "courses_avg": 97
+                    }
+                },
+                {
+                    "IS": {
+                        "courses_dept": "mat*"
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_dept",
+                "courses_avg",
+                "courses_instructor",
+                "courses_title",
+                "courses_pass",
+                "courses_fail",
+                "courses_audit",
+                "courses_uuid"
+            ],
+            "ORDER": {
+                "dir": "left",
+                "keys": [
+                    "courses_dept"
+                ]
+            }
+        },
+        "FORM": "TABLE"
+    },
+    "response": {
+        "code": 400,
+        "body": {
+            "error": "no such order operation left"
+        }
+    }
+}

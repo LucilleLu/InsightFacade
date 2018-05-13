@@ -1,0 +1,43 @@
+{
+    "title": "find coverage of all cases that with IS opt trhow error",
+    "query": {
+        "WHERE": {
+            "AND" : [
+                {
+                    "IS": {
+                        "courses_dept":"a"
+                    }
+                },
+                {
+                    "IS": {
+                        "courses_id":"8"
+                    }
+                },
+                {
+                    "IS": {
+                        "courses_instructor":"a"
+                    }
+                },
+                {
+                    "IS": {
+                        "courses_title":"a"
+                    }
+                },
+                {
+                    "IS": {
+                        "courses_uuid":"1*1"
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": ["courses_dept", "courses_avg"],
+            "FORM": "TABLE"
+        }
+    }
+    ,
+    "response": {
+        "code": 400,
+        "body": {"error":"Wrong wild card format"}
+    }
+}

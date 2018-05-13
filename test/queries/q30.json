@@ -1,0 +1,83 @@
+{
+    "title": "select courses_dept where courses_avg > 97",
+    "query": {
+        "WHERE": {
+            "IS": {
+                "courses_title": "acad assess schl"
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_title",
+                "courses_instructor",
+                "overallAvg"
+            ],
+            "ORDER": {
+                "dir": "UP",
+                "keys": [
+                    "courses_title"
+                ]
+            }
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "courses_title",
+                "courses_instructor"
+            ],
+            "APPLY": [
+                {
+                    "overallAvg": {
+                        "COUNT": "courses_instructor"
+                    }
+                }
+            ]
+        }
+    },
+    "response": {
+        "code": 200,
+        "body": {
+            "result": [
+                {
+                    "courses_title": "acad assess schl",
+                    "courses_instructor": "weber, rachel",
+                    "overallAvg": 1
+                },
+                {
+                    "courses_title": "acad assess schl",
+                    "courses_instructor": "",
+                    "overallAvg": 1
+                },
+                {
+                    "courses_title": "acad assess schl",
+                    "courses_instructor": "hymel, shelley",
+                    "overallAvg": 1
+                },
+                {
+                    "courses_title": "acad assess schl",
+                    "courses_instructor": "ainsworth, cheryl",
+                    "overallAvg": 1
+                },
+                {
+                    "courses_title": "acad assess schl",
+                    "courses_instructor": "lacroix, serge",
+                    "overallAvg": 1
+                },
+                {
+                    "courses_title": "acad assess schl",
+                    "courses_instructor": "amaral, deborah",
+                    "overallAvg": 1
+                },
+                {
+                    "courses_title": "acad assess schl",
+                    "courses_instructor": "amaral, deborah;ford, laurie",
+                    "overallAvg": 1
+                },
+                {
+                    "courses_title": "acad assess schl",
+                    "courses_instructor": "missiaen, sharon anne",
+                    "overallAvg": 1
+                }
+            ]
+        }
+    }
+}

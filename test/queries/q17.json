@@ -1,0 +1,29 @@
+{
+    "title": "select courses_dept where courses_avg > 97",
+    "query": {
+        "WHERE": {
+            "AND" : [
+                {
+                    "NOT":{
+                        "IS":{
+                            "courses_dept": "mat*"
+                        }
+                    }
+                },
+                {
+                    "IS":{
+                        "courses_dept": "mat*"
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": ["courses_dept", "courses_avg"],
+            "FORM": "TABLE"
+        }
+    },
+    "response": {
+        "code": 200,
+        "body": {"result":[]
+    }}
+}

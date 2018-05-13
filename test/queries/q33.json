@@ -1,0 +1,103 @@
+{
+    "title": "select courses_dept where courses_avg > 97",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "GT": {
+                        "courses_avg": 97
+                    }
+                },
+                {
+                    "IS": {
+                        "courses_dept": "math"
+                    }
+                },
+                {
+                    "LT": {
+                        "courses_pass": 1000
+                    }
+                },
+                {
+                    "EQ": {
+                        "courses_fail": 0
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_title",
+                "courses_instructor",
+                "overallAvg"
+            ],
+            "ORDER": {
+                "dir": "DOWN",
+                "keys": [
+                    "courses_title",
+                    "courses_instructor"
+                ]
+            }
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "courses_title",
+                "courses_instructor"
+            ],
+            "APPLY": [
+                {
+                    "overallAvg": {
+                        "AVG": "courses_avg"
+                    }
+                }
+            ]
+        }
+    },
+    "response": {
+        "code": 200,
+        "body": {
+            "result": [
+                {
+                    "courses_title": "harmonic anal i",
+                    "courses_instructor": "laba, izabella",
+                    "overallAvg": 97.09
+                },
+                {
+                    "courses_title": "harmonic anal i",
+                    "courses_instructor": "",
+                    "overallAvg": 97.09
+                },
+                {
+                    "courses_title": "diff geometry i",
+                    "courses_instructor": "fraser, ailana",
+                    "overallAvg": 97.25
+                },
+                {
+                    "courses_title": "diff geometry i",
+                    "courses_instructor": "",
+                    "overallAvg": 97.25
+                },
+                {
+                    "courses_title": "algb topology i",
+                    "courses_instructor": "gomez, jose",
+                    "overallAvg": 99.78
+                },
+                {
+                    "courses_title": "algb topology i",
+                    "courses_instructor": "",
+                    "overallAvg": 99.78
+                },
+                {
+                    "courses_title": "algb geometry i",
+                    "courses_instructor": "karu, kalle",
+                    "overallAvg": 97.48
+                },
+                {
+                    "courses_title": "algb geometry i",
+                    "courses_instructor": "",
+                    "overallAvg": 97.48
+                }
+            ]
+        }
+    }
+}

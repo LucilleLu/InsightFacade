@@ -1,0 +1,23 @@
+{
+    "title": "code 400 bad request : roder key need to be included in columns",
+    "query": {
+        "WHERE": {
+            "GT": {
+                "courses_avg":97
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "",
+                "courses_avg"
+            ],
+            "ORDER": "courses_dept"
+
+        }
+    }
+    ,
+    "response": {
+        "code": 400,
+        "body": {"error":"Columns cannot be empty"}
+    }
+}

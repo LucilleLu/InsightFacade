@@ -1,0 +1,38 @@
+{
+    "title": "find coverage of all cases that with GT opt",
+    "query": {
+        "WHERE": {
+            "AND" : [
+                {
+                    "GT": {
+                        "courses_avg": 99
+                    }
+                },
+                {
+                    "GT": {
+                        "courses_pass":90
+                    }
+                },
+                {
+                    "GT": {
+                        "courses_fail":90
+                    }
+                },
+                {
+                    "GT": {
+                        "courses_audit":90
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": ["courses_dept", "courses_avg"],
+            "FORM": "TABLE"
+        }
+    }
+    ,
+    "response": {
+        "code": 200,
+        "body": {"result":[]}
+    }
+}

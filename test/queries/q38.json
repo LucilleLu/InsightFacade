@@ -1,0 +1,39 @@
+{
+    "title": "duplicate apply key",
+    "query": {
+        "WHERE": {
+            "GT": {
+                "courses_avg": 70
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_title",
+                "overallAvg"
+            ]
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "courses_title"
+            ],
+            "APPLY": [
+                {
+                    "overallAvg": {
+                        "AVG": "courses_avg"
+                    }
+                },
+                {
+                    "overallAvg": {
+                        "AVG": "courses_avg"
+                    }
+                }
+            ]
+        }
+    },
+    "response": {
+        "code": 400,
+        "body": {
+            "error":"duplicate apply key"
+        }
+    }
+}

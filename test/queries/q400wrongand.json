@@ -1,0 +1,33 @@
+{
+    "title": "wrong format in and",
+    "query": {
+        "WHERE": {
+            "AND": [
+                {
+                    "GT": {
+                        "courses_avg": 97
+                    }
+                },
+                {
+                    "LEQ": {
+                        "courses_dept": "mat*"
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_dept",
+                "courses_avg"
+            ],
+            "ORDER": "courses_avg",
+            "FORM": "TABLE"
+        }
+    },
+    "response": {
+        "code": 400,
+        "body": {
+            "error": "wrong format in and"
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "title": "code 400 column can not be empty",
+    "query": {
+        "WHERE": {
+            "GT": {
+                "courses_avg":97
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+
+            ],
+            "ORDER": ["courses_dept", ""],
+            "FORM": "TABLE"
+        }
+    }
+    ,
+    "response": {
+        "code": 400,
+        "body": {"error":"Columns cannot be empty"}
+    }
+}

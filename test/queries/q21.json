@@ -1,0 +1,17 @@
+{
+    "title": "Wrong GT format",
+    "query": {
+        "WHERE": {
+            "GT":{
+                "courses_avg": "200"
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": ["courses_dept", "courses_avg"],
+            "FORM": "TABLE"
+        }
+    },
+    "response": {
+        "code": 400,
+        "body": {"error":"Wrong GT format"}}
+}

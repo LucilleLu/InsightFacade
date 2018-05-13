@@ -1,0 +1,17 @@
+{
+    "title": "Empty AND",
+    "query": {
+        "WHERE": {
+            "IS":{
+                "courses_dept": 200
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": ["courses_dept", "courses_avg"],
+            "FORM": "TABLE"
+        }
+    },
+    "response": {
+        "code": 400,
+        "body": {"error":"Wrong IS format"}}
+}

@@ -1,0 +1,19 @@
+{
+    "title": "No result",
+    "query": {
+        "WHERE": {
+            "GT": {
+                "courses_avg":100
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": ["courses_dept"],
+            "FORM": "TABLE"
+        }
+    }
+    ,
+    "response": {
+        "code": 200,
+        "body": {"result":[]}
+    }
+}

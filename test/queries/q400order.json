@@ -1,0 +1,37 @@
+{
+    "title": "no such operation LEQ",
+    "query": {
+        "WHERE": {
+            "AND" : [
+                {
+                    "LEQ": {
+                        "courses_avg":97
+                    }
+                },
+                {
+                    "IS":{
+                        "courses_dept": "mat*"
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_dept",
+                "courses_avg",
+                "courses_instructor",
+                "courses_title",
+                "courses_pass",
+                "courses_fail",
+                "courses_audit",
+                "courses_uuid"
+            ],
+            "ORDER": ["courses_avg", "courses_id"],
+            "FORM": "TABLE"
+        }
+    },
+    "response": {
+        "code": 400,
+        "body": {"error":"no such operation LEQ"}
+    }
+}

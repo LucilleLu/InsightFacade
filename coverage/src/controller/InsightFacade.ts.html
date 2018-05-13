@@ -1,0 +1,2597 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/controller/InsightFacade.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">src/controller</a> InsightFacade.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">96.84% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>491/507</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">93.42% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>213/228</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">91.67% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>44/48</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">97.13% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>473/487</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765
+766
+767
+768
+769
+770
+771
+772
+773
+774
+775
+776
+777
+778
+779
+780
+781
+782
+783
+784
+785
+786
+787
+788
+789
+790
+791
+792
+793
+794
+795
+796
+797
+798
+799
+800
+801
+802
+803
+804
+805
+806
+807
+808
+809
+810
+811
+812
+813
+814
+815
+816
+817
+818
+819
+820
+821
+822
+823
+824
+825
+826
+827
+828
+829
+830
+831
+832
+833
+834
+835
+836
+837
+838
+839
+840
+841
+842
+843
+844
+845</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">135x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">135x</span>
+<span class="cline-any cline-yes">135x</span>
+<span class="cline-any cline-yes">135x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">43x</span>
+<span class="cline-any cline-yes">41x</span>
+<span class="cline-any cline-yes">2252879x</span>
+<span class="cline-any cline-yes">2252879x</span>
+<span class="cline-any cline-yes">2252878x</span>
+<span class="cline-any cline-yes">362074x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">40x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">193852x</span>
+<span class="cline-any cline-yes">193852x</span>
+<span class="cline-any cline-yes">129153x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">323213x</span>
+<span class="cline-any cline-yes">323213x</span>
+<span class="cline-any cline-yes">1053x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">35x</span>
+<span class="cline-any cline-yes">34x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">364x</span>
+<span class="cline-any cline-yes">364x</span>
+<span class="cline-any cline-yes">364x</span>
+<span class="cline-any cline-yes">364x</span>
+<span class="cline-any cline-yes">275x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">131375x</span>
+<span class="cline-any cline-yes">131375x</span>
+<span class="cline-any cline-yes">7331x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">260325x</span>
+<span class="cline-any cline-yes">260325x</span>
+<span class="cline-any cline-yes">10196x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">208543x</span>
+<span class="cline-any cline-yes">208543x</span>
+<span class="cline-any cline-yes">149x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">33x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">959x</span>
+<span class="cline-any cline-yes">959x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">23x</span>
+<span class="cline-any cline-yes">67x</span>
+<span class="cline-any cline-yes">67x</span>
+<span class="cline-any cline-yes">67x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">63x</span>
+<span class="cline-any cline-yes">63x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">64612x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">114x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">58x</span>
+<span class="cline-any cline-yes">116x</span>
+<span class="cline-any cline-yes">58x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">58x</span>
+<span class="cline-any cline-yes">55x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">55x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">83x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">82x</span>
+<span class="cline-any cline-yes">82x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">78x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">26x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">26x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25x</span>
+<span class="cline-any cline-yes">25x</span>
+<span class="cline-any cline-yes">8582x</span>
+<span class="cline-any cline-yes">8582x</span>
+<span class="cline-any cline-yes">34197x</span>
+<span class="cline-any cline-yes">34197x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8582x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">944x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">155x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">302x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">524x</span>
+<span class="cline-any cline-yes">286x</span>
+<span class="cline-any cline-yes">73x</span>
+<span class="cline-any cline-yes">73x</span>
+<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">46x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">361085x</span>
+<span class="cline-any cline-yes">361085x</span>
+<span class="cline-any cline-yes">361085x</span>
+<span class="cline-any cline-yes">361310x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">361309x</span>
+<span class="cline-any cline-yes">361309x</span>
+<span class="cline-any cline-yes">873x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">361309x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">361084x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">361084x</span>
+<span class="cline-any cline-yes">16242x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">344842x</span>
+<span class="cline-any cline-yes">344842x</span>
+<span class="cline-any cline-yes">344842x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5017x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5017x</span>
+<span class="cline-any cline-yes">4216x</span>
+<span class="cline-any cline-yes">4216x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5016x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">44x</span>
+<span class="cline-any cline-yes">56x</span>
+<span class="cline-any cline-yes">56x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">44x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">76x</span>
+<span class="cline-any cline-yes">98x</span>
+<span class="cline-any cline-yes">98x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">76x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4095x</span>
+<span class="cline-any cline-yes">4095x</span>
+<span class="cline-any cline-yes">122044x</span>
+<span class="cline-any cline-yes">122044x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4095x</span>
+<span class="cline-any cline-yes">4095x</span>
+<span class="cline-any cline-yes">4095x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">793x</span>
+<span class="cline-any cline-yes">793x</span>
+<span class="cline-any cline-yes">67739x</span>
+<span class="cline-any cline-yes">67739x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">793x</span>
+<span class="cline-any cline-yes">793x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5016x</span>
+<span class="cline-any cline-yes">5016x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5016x</span>
+<span class="cline-any cline-yes">5187x</span>
+<span class="cline-any cline-yes">68x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5016x</span>
+<span class="cline-any cline-yes">5016x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">57x</span>
+<span class="cline-any cline-yes">57x</span>
+<span class="cline-any cline-yes">57x</span>
+<span class="cline-any cline-yes">57x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">41x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">39x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">283800x</span>
+<span class="cline-any cline-yes">283800x</span>
+<span class="cline-any cline-yes">283800x</span>
+<span class="cline-any cline-yes">7098x</span>
+<span class="cline-any cline-yes">7098x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">276702x</span>
+<span class="cline-any cline-yes">139480x</span>
+<span class="cline-any cline-yes">280932x</span>
+<span class="cline-any cline-yes">280932x</span>
+<span class="cline-any cline-yes">8084x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">139480x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">137222x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-yes">88x</span>
+<span class="cline-any cline-yes">88x</span>
+<span class="cline-any cline-yes">88x</span>
+<span class="cline-any cline-yes">728x</span>
+<span class="cline-any cline-yes">728x</span>
+<span class="cline-any cline-yes">728x</span>
+<span class="cline-any cline-yes">728x</span>
+<span class="cline-any cline-yes">728x</span>
+<span class="cline-any cline-yes">728x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">728x</span>
+<span class="cline-any cline-yes">728x</span>
+<span class="cline-any cline-yes">3640x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">728x</span>
+<span class="cline-any cline-yes">728x</span>
+<span class="cline-any cline-yes">728x</span>
+<span class="cline-any cline-yes">728x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3640x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">728x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3640x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">728x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3640x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">728x</span>
+<span class="cline-any cline-yes">728x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3640x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">728x</span>
+<span class="cline-any cline-yes">728x</span>
+<span class="cline-any cline-yes">728x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">728x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">88x</span>
+<span class="cline-any cline-yes">60x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">740x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">740x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">740x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">740x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">148x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">37496x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37496x</span>
+<span class="cline-any cline-yes">37486x</span>
+<span class="cline-any cline-yes">37486x</span>
+<span class="cline-any cline-yes">37483x</span>
+<span class="cline-any cline-yes">37483x</span>
+<span class="cline-any cline-yes">410486x</span>
+<span class="cline-any cline-yes">410486x</span>
+<span class="cline-any cline-yes">410486x</span>
+<span class="cline-any cline-yes">410486x</span>
+<span class="cline-any cline-yes">410486x</span>
+<span class="cline-any cline-yes">410486x</span>
+<span class="cline-any cline-yes">410486x</span>
+<span class="cline-any cline-yes">410486x</span>
+<span class="cline-any cline-yes">410486x</span>
+<span class="cline-any cline-yes">410486x</span>
+<span class="cline-any cline-yes">410486x</span>
+<span class="cline-any cline-yes">410486x</span>
+<span class="cline-any cline-yes">410486x</span>
+<span class="cline-any cline-yes">410486x</span>
+<span class="cline-any cline-yes">410486x</span>
+<span class="cline-any cline-yes">156204x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">254282x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">410486x</span>
+<span class="cline-any cline-yes">410486x</span>
+<span class="cline-any cline-yes">410486x</span>
+<span class="cline-any cline-yes">410486x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">59x</span>
+<span class="cline-any cline-yes">59x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">59x</span>
+<span class="cline-any cline-yes">59x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">58x</span>
+<span class="cline-any cline-yes">58x</span>
+<span class="cline-any cline-yes">58x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">44x</span>
+<span class="cline-any cline-yes">26x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">44x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">40x</span>
+<span class="cline-any cline-yes">40x</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">39x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30x</span>
+<span class="cline-any cline-yes">30x</span>
+<span class="cline-any cline-yes">30x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Decimal from "decimal.js";
+import fs = require("fs");
+import http = require("http");
+import zip = require("jszip");
+import parse5 = require("parse5");
+import { isUndefined } from "util";
+import Log from "../Util";
+import { IArr, IBuilding, ICourse, IDataset, IInsightFacade, InsightResponseSuccessBody } from "./IInsightFacade";
+import { InsightDataset, InsightDatasetKind, InsightResponse, InsightResponseErrorBody, IRoom } from "./IInsightFacade";
+import { IGeoResponse } from "./IInsightFacade";
+&nbsp;
+/**
+ * This is the main programmatic entry point for the project.
+ */
+&nbsp;
+const datasets: { [id: string]: IDataset } = {};
+&nbsp;
+function FilterData(allData: IArr, opt: string, requirement: any): IArr | string {
+    let filteredData: IArr = [];
+    // requirement: {"courses_pass" : 1000}
+    // reqOnCol: "courses_pass"
+    // reqVal: 1000
+    const reqOnCol: string = Object.keys(requirement)[0];
+    const reqVal: any = requirement[reqOnCol];
+    switch (opt) {
+        case "GT": {
+            if (typeof reqVal !== "number") { return "GT is operated on data with type other than number"; }
+            for (const data of allData) {
+                const d: any = data;
+                if (typeof d[reqOnCol] === "undefined") { return "no such where column"; }
+                if (d[reqOnCol] &gt; reqVal) {
+                    filteredData.push(data);
+                }
+            }
+            break;
+        }
+        case "LT": {
+            if (typeof reqVal !== "number") { return "LT is operated on data with type other than number"; }
+            for (const data of allData) {
+                const d: any = data;
+                if (d[reqOnCol] &lt; reqVal) {
+                    filteredData.push(data);
+                }
+            }
+            break;
+        }
+        case "EQ": {
+            if (typeof reqVal !== "number") { return "EQ is operated on data with type other than number"; }
+            for (const data of allData) {
+                const d: any = data;
+                if (d[reqOnCol] === reqVal) {
+                    filteredData.push(data);
+                }
+            }
+            break;
+        }
+        case "IS": {
+            // requirement: {"courses_title" : "*a*"}
+            // reqOnCol: "courses_title"
+            // reqVal: *a, a*, *a*, asd
+            if (typeof reqVal !== "string") { return "IS is operated on data with type other than string"; }
+            if (reqVal.includes("*")) {
+                if (reqVal.startsWith("*") &amp;&amp; reqVal.endsWith("*")) {
+                    // reqVal: *a*
+                    for (const course of allData) {
+                        const c: any = course;
+                        const strVal: string = c[reqOnCol];
+                        const pattern: string = reqVal.substring(1, reqVal.length - 1);
+                        if (strVal.includes(pattern)) {
+                            filteredData.push(course);
+                        }
+                    }
+                } else {
+                    if (reqVal.startsWith("*")) {
+                        for (const course of allData) {
+                            const c: any = course;
+                            if (c[reqOnCol].endsWith(reqVal.substring(1, reqVal.length))) {
+                                filteredData.push(course);
+                            }
+                        }
+                    } else {
+                        if (reqVal.endsWith("*")) {
+                            for (const course of allData) {
+                                const c: any = course;
+                                if (c[reqOnCol].startsWith(reqVal.substring(0, reqVal.length - 1))) {
+                                    filteredData.push(course);
+                                }
+                            }
+                        } else {
+                            return "Wrong wild card format";
+                        }
+                    }
+                }
+            } else {
+                // reqVal: asd
+                for (const course of allData) {
+                    const c: any = course;
+                    if (c[reqOnCol] === reqVal) {
+                        filteredData.push(course);
+                    }
+                }
+            }
+            break;
+        }
+        case "OR": {
+            if (requirement.length === 0) { return "Empty OR"; }
+            for (const req of requirement) {
+                for (const nextOpt of Object.keys(req)) {
+                    <span class="missing-if-branch" title="else path not taken" >E</span>if (nextOpt !== undefined) {
+                        const oneOrData = FilterData(allData, nextOpt, req[nextOpt]);
+                        if (typeof oneOrData === "string") {
+                            return oneOrData;
+                        }
+                        for (const oneOR of oneOrData) {
+                            <span class="missing-if-branch" title="else path not taken" >E</span>if (!filteredData.includes(oneOR)) {
+                                filteredData.push(oneOR);
+                            }
+                        }
+                    }
+                }
+            }
+            break;
+        }
+        case "AND": {
+            if (requirement.length === 0) { return "Empty AND"; }
+            for (const req of requirement) {
+                for (const nextOpt of Object.keys(req)) {
+                    const oneAllData = FilterData(allData, nextOpt, req[nextOpt]);
+                    if (typeof oneAllData === "string") {
+                        return oneAllData;
+                    }
+                    <span class="missing-if-branch" title="else path not taken" >E</span>if (oneAllData !== undefined) {
+                        allData = oneAllData;
+                    }
+                }
+            }
+            filteredData = allData;
+            break;
+        }
+        case "NOT": {
+            let notWantedDataTwoType: IArr | string;
+            for (const req of Object.keys(requirement)) {
+                // if (requirement[key] === 0) {return "Empty NOT";}
+                notWantedDataTwoType = FilterData(allData, req, requirement[req]);
+            }
+            if (typeof notWantedDataTwoType === "string") {
+                return notWantedDataTwoType;
+            }
+            const notWantedData: IArr = notWantedDataTwoType;
+            filteredData = allData.filter((n) =&gt; !notWantedData.includes(n));
+            break;
+        }
+        default: {
+            return "No such operation (NOT is a operation)";
+        }
+    }
+    return filteredData;
+}
+&nbsp;
+function AnalyzeFilter(dataSetid: string, filter: { [key: string]: any }): Array&lt;ICourse | IRoom&gt; | string {
+    // filter = query["where']
+    let allData: any[];
+    for (const id in datasets) {
+        if (id === dataSetid) {
+            allData = datasets[id].sub;
+        }
+    }
+    for (const operator of Object.keys(filter)) { // operator can be: IS NOT AND OR LT GT EQ
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (operator === undefined) {
+            // const err: InsightResponse = {code: 400, body: {error: "WHERE is empty"}};
+<span class="cstat-no" title="statement not covered" >            return allData;</span>
+        }
+        return FilterData(allData, operator, filter[operator]);
+    }
+    return allData;
+}
+&nbsp;
+function AnalyzeOptions(filteredData: Array&lt;ICourse | IRoom&gt;, query: any): IArr | string {
+    const columns: string[] = [];
+    for (const col of query.COLUMNS) {
+        if (typeof col !== "string") {
+            return "wrong column format";
+        } else {
+            const propofData: string[] = Object.keys(filteredData[0]);
+            if (!propofData.includes(col)) {
+                return "no such column";
+            }
+            columns.push(col);
+        }
+    }
+    const order: any = query.ORDER;
+    // TODO: may be case problem
+    // if (typeof order !== "string" &amp;&amp; typeof order !== "object") {
+    //     return "wrong order formate";
+    // }
+    if (columns.length === 0) {
+        return "There is no column";
+    }
+    // find all columns in filtered data
+    let wantedData: IArr | string = [];
+    for (const data of filteredData) {
+        const row: any = {};
+        for (const column of columns) {
+            const d: any = data;
+            row[column] = d[column];
+        }
+        wantedData.push(row);
+    }
+    if (typeof order !== "undefined") {
+        if (typeof order === "string" &amp;&amp; !columns.includes(order)) { return "order key is not in columns"; }
+        if (typeof order === "object" &amp;&amp; Object.keys(order).includes("dir")) {
+            for (const key of order.keys) {
+                if (!columns.includes(key)) {
+                    return "order key is not in columns";
+                }
+            }
+        }
+        if (typeof order === "object" &amp;&amp; !Object.keys(order).includes("dir")) {
+            for (const key of order) {
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (!columns.includes(key)) {
+<span class="cstat-no" title="statement not covered" >                    return "order key is not in columns";</span>
+                }
+            }
+        }
+        wantedData = AnalyzeOrder(order, wantedData);
+    }
+    return wantedData;
+}
+&nbsp;
+function AnalyzeOrder(order: any, wantedData: IArr): IArr | string {
+    switch (typeof order) {
+        case "string": {
+            wantedData.sort(function (a: { [key: string]: any }, b: { [key: string]: any }) {
+                return (a[order] &gt; b[order]) ? 1 : ((b[order] &gt; a[order]) ? -1 : 0);
+            });
+            break;
+        }
+        case "object": {
+            if (Object.keys(order).includes("dir")) {
+                const orderSA: string[] = order.keys;
+                switch (order.dir) {
+                    case "UP": {
+                        wantedData.sort(function (a: { [key: string]: any }, b: { [key: string]: any }) {
+                            return compare(a, b, orderSA, 0);
+                        });
+                        break;
+                    }
+                    case "DOWN": {
+                        wantedData.sort(function (a: { [key: string]: any }, b: { [key: string]: any }) {
+                            return (-1) * compare(a, b, orderSA, 0);
+                        });
+                        break;
+                    }
+                    default: {
+                        return "no such order operation";
+                    }
+                }
+            } else {
+                const orderSA: string[] = order;
+                wantedData.sort(function (a: { [key: string]: any }, b: { [key: string]: any }) {
+                    return compare(a, b, orderSA, 0);
+                });
+            }
+            break;
+        }
+    }
+    return wantedData;
+}
+&nbsp;
+function compare(a: { [key: string]: any }, b: { [key: string]: any }, orderSA: string[], index: number): 1 | -1 | 0 {
+    if (a[orderSA[index]] &gt; b[orderSA[index]]) { return 1; }
+    if (a[orderSA[index]] &lt; b[orderSA[index]]) { return -1; }
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (a[orderSA[index]] === b[orderSA[index]]) {
+        if (index === orderSA.length - 1) {
+            return 0;
+        } else {
+            return compare(a, b, orderSA, index + 1);
+        }
+    }
+}
+&nbsp;
+function AnalyzeTransformations(data: IArr, query: any): string | any[] {
+    let grouped: { [uniquePropertyValue: string]: IArr } | string;
+    grouped = AnalyzeGroup(data, query["GROUP"]);
+    if (typeof grouped === "string") { return grouped; }
+    const applyed: IArr | string = AnalyzeApply(grouped, query["APPLY"]);
+    return applyed;
+}
+&nbsp;
+function AnalyzeGroup(data: IArr, query: string[]): string | { [uniquePropertyValue: string]: IArr } {
+    // query: ["courses_title", "courses_dept"]
+    // groups: {"{titile: 310}, {instructor: Sam}": [c]}
+    const groups: { [property: string]: IArr } = {};
+    for (const course of data) {
+        const props: any = {};
+        const c: any = course;
+        for (const groupByElement of query) {
+            if (!((groupByElement.includes("_")) &amp;&amp; (groupByElement.split("_").length === 2))) {
+                return "wrong group by element format e.g. course_a_a";
+            }
+            // const property: string = groupByElement.split("_")[1];    // property example: title
+            let value: string = c[groupByElement].toString();
+            if (value.length === 0) {
+                value = "No Value";
+            }
+            props[groupByElement] = value;
+        }
+        // props example: ["{courese_titile: 310, courses_instructor: Sam}"]
+        const prop: string = JSON.stringify(props);
+        // prop example: {courese_titile: 310, courses_instructor: Sam}
+        if (typeof groups[prop] === "undefined") {
+            groups[prop] = [course];
+        } else {
+            const values: IArr = groups[prop];
+            values.push(course);
+            groups[prop] = values;
+        }
+    }
+    return groups;
+}
+&nbsp;
+function isApplykeyCorrect(query: any): boolean {
+    const qs: string[] = [];
+    for (const q of query) {
+        if (qs.includes(Object.keys(q)[0]) || Object.keys(q)[0].includes("_")) {
+            return false;
+        } else {
+            qs.push(Object.keys(q)[0]);
+        }
+    }
+    return true;
+}
+&nbsp;
+function AnalyzeApply(groups: { [propertyValue: string]: IArr }, query: any[]): any[] | string {
+    // query: [{"maxSeats": {"MAX": "rooms_seats"}}]
+    // groups: {"{titile: 310, instructor: Sam}": [c1], "{titile: 210, instructor: Sam}": [c2]}
+    if (!isApplykeyCorrect(query)) { return "apply key no unique"; }
+    const results: any[] = [];
+    for (const appEle of query) {
+        // appEle: {"maxSeats": {"MAX": "rooms_seats"}};
+        // name: maxSeats
+        // req: {"MAX": "rooms_seats"}
+        // opt: MAX
+        // optOn: rooms_seats
+        const name: string = Object.keys(appEle)[0];
+        const req: any = appEle[name];
+        const opt: string = Object.keys(req)[0];
+        const optOn: string = req[opt];
+        for (const groupByCombain of Object.keys(groups)) {
+            // groupByCombain: "{titile: 310, instructor: Sam}"
+            const cORr: IArr = groups[groupByCombain];
+            let appReqRes: number | string | Decimal;
+            if (opt === "MAX" || opt === "MIN" || opt === "AVG") {
+                const a: any = Object.values(groups)[0][0];
+                if (typeof a[optOn] !== "number") {
+                    return "opt is max/min/avg but the column is not a number column";
+                }
+            }
+            switch (opt) {
+                case "MAX": {
+                    appReqRes = Math.max.apply(Math, cORr.map(function (o) {
+                        const on: any = o;
+                        return on[optOn];
+                    }));
+                    break;
+                }
+                case "MIN": {
+                    appReqRes = Math.min.apply(Math, cORr.map(function (o) {
+                        const on: any = o;
+                        return on[optOn];
+                    }));
+                    break;
+                }
+                case "AVG": {
+                    let sum: Decimal = new Decimal(0);
+                    for (const c of cORr) {
+                        const cn: any = c;
+                        sum = new Decimal(cn[optOn]).add(sum);
+                    }
+                    const total: number = sum.toNumber();
+                    appReqRes = Number((total / cORr.length).toFixed(2));
+                    break;
+                }
+                case "COUNT": {
+                    const x: Set&lt;any&gt; = new Set&lt;any&gt;();
+                    for (const c of cORr) {
+                        const cn: any = c;
+                        x.add(cn[optOn]);
+                    }
+                    appReqRes = x.size;
+                    break;
+                }
+                case "SUM": {
+                    let sum: Decimal = new Decimal(0);
+                    for (const c of cORr) {
+                        const cn: any = c;
+                        sum = sum.add(new Decimal(cn[optOn]));
+                    }
+                    appReqRes = Number(sum.toFixed(2));
+                    break;
+                }
+<span class="branch-5 cbranch-no" title="branch not covered" >                default: {</span>
+<span class="cstat-no" title="statement not covered" >                    appReqRes = "operation is not one of Max, Min, Avg, Count, or Sum";</span>
+                }
+            }
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof appReqRes === "string") { <span class="cstat-no" title="statement not covered" >return appReqRes; </span>}
+            const resultofApply: { [pro: string]: any } = JSON.parse(groupByCombain);
+            // resultofApply: {titile: 310, instructor: Sam}
+            for (const key of Object.keys(resultofApply)) {
+                if (resultofApply[key] === "No Value") {
+                    resultofApply[key] = "";
+                }
+            }
+            resultofApply[name] = appReqRes; // resultofApply: {titile: 310, instructor: Sam, maxSeats: 1}
+            results.push(resultofApply);
+        }
+    }
+    return results;
+}
+&nbsp;
+function isAllinColumns(query: any): boolean {
+    const trans: any = query.TRANSFORMATIONS;
+    const order: any = query.OPTIONS.ORDER;
+    const columns: string[] = query.OPTIONS.COLUMNS;
+    if (typeof trans !== "undefined") {
+        const group: string[] = trans.GROUP;
+        const apply: any = trans.APPLY;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof group !== "undefined") {
+            // If a GROUP is present, all COLUMNS terms must correspond to either GROUP terms or to terms defined
+            // in the APPLY block.
+            const applyCols: string[] = [];
+            for (const applyby of apply) {
+                applyCols.push(Object.keys(applyby)[0]);
+            }
+            for (const col of query.OPTIONS.COLUMNS) {
+                if (!group.includes(col)) {
+                    if (!applyCols.includes(col)) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        } else {
+<span class="cstat-no" title="statement not covered" >            return true;</span>
+        }
+    } else {
+        if (typeof order !== "undefined") {
+            // 'SORT' - Any keys provided must be in the COLUMNS
+            switch (typeof order) {
+                case "string": {
+                    if (!columns.includes(order)) { return false; }
+                    break;
+                }
+                case "object": {
+                    if (order.hasOwnProperty("dir")) {
+                        for (const key of order.keys) {
+                            <span class="missing-if-branch" title="if path not taken" >I</span>if (!columns.includes(key)) { <span class="cstat-no" title="statement not covered" >return false; </span>}
+                        }
+                    } else {
+                        for (const key of order) {
+                            if (!columns.includes(key)) { return false; }
+                        }
+                    }
+                    break;
+                }
+<span class="branch-2 cbranch-no" title="branch not covered" >                default: { <span class="cstat-no" title="statement not covered" >return false; </span>}</span>
+            }
+            return true;
+        } else {
+            return true;
+        }
+    }
+}
+&nbsp;
+function findNode(html: any, name: string): any {
+    let returnNodes: any = [];
+    try {
+        if (html.nodeName === name) {
+            returnNodes.push(html);
+            return returnNodes;
+        }
+        if (html.childNodes !== undefined) {
+            for (const child of html.childNodes) {
+                const t = findNode(child, name);
+                if (t.length !== 0) {
+                    returnNodes = returnNodes.concat(t);
+                }
+            }
+            return returnNodes;
+        }
+    } catch (error) {
+<span class="cstat-no" title="statement not covered" >        Log.trace("Line 490 " + error);</span>
+    }
+    return [];
+}
+&nbsp;
+function latlonResponse(geourl: string) {
+    return new Promise(function (fulfill, reject) {
+        http.get(geourl, (response: any) =&gt; {
+            let rawData = "";
+            response.on("data", (chunk: any) =&gt; rawData += chunk);
+            response.on("end", () =&gt; {
+                try {
+                    const parsedData = JSON.parse(rawData);
+                    fulfill(parsedData);
+&nbsp;
+                } catch (err) {
+<span class="cstat-no" title="statement not covered" >                    Log.trace(err.message);</span>
+                }
+            });
+        }).on("error", <span class="fstat-no" title="function not covered" >(e</span>rr: any) =&gt; {
+<span class="cstat-no" title="statement not covered" >            Log.trace(`Got error: ${err.message}`);</span>
+        });
+    });
+}
+&nbsp;
+function roomArrGenerator(building: any) {
+    return new Promise(function (fulfill, reject) {
+        const roomArray: any[] = [];
+        building.file.async("text").then(function (infoString: any) {
+            const roomInfo: any = parse5.parse(infoString);
+            const roomtbodyArray = findNode(roomInfo, "tbody");
+            if (roomtbodyArray.length !== 0) {
+                const tbody = roomtbodyArray[0];
+                const roomtrArray = findNode(tbody, "tr");
+                for (const roomtr of roomtrArray) {
+                    const room: IRoom = {} as IRoom;
+                    room.rooms_fullname = building.fullname;
+                    room.rooms_shortname = building.shortname;
+                    room.rooms_address = building.address;
+                    room.rooms_lat = parseFloat(building.lat);
+                    room.rooms_lon = parseFloat(building.lon);
+&nbsp;
+                    const roomtdArray = findNode(roomtr, "td");
+                    for (const roomtd of roomtdArray) {
+                        if (roomtd.attrs[0].value ===
+                            "views-field views-field-field-room-number") {
+                            const aArr = findNode(roomtd, "a");
+                            const a = aArr[0];
+                            room.rooms_number = a.childNodes[0].value;
+                            room.rooms_name =
+                                room.rooms_shortname + "_" + room.rooms_number;
+                        }
+                        if (roomtd.attrs[0].value ===
+                            "views-field views-field-field-room-capacity") {
+                            room.rooms_seats =
+                                parseInt(roomtd.childNodes[0].value.trim(), 10);
+                        }
+                        if (roomtd.attrs[0].value ===
+                            "views-field views-field-field-room-type") {
+                            room.rooms_type = roomtd.childNodes[0].value.trim();
+                        }
+                        if (roomtd.attrs[0].value ===
+                            "views-field views-field-field-room-furniture") {
+                            const res = roomtd.childNodes[0].value;
+                            room.rooms_furniture = res.trim();
+                        }
+                        if (roomtd.attrs[0].value ===
+                            "views-field views-field-nothing") {
+                            const aArr = findNode(roomtd, "a");
+                            const a = aArr[0];
+                            room.rooms_href = a.attrs[0].value;
+                        }
+                    }
+                    roomArray.push(room);
+                }
+                fulfill(roomArray);
+            } else { fulfill([]); }
+        });
+    });
+}
+&nbsp;
+export default class InsightFacade implements IInsightFacade {
+&nbsp;
+    constructor() {
+        Log.trace("InsightFacadeImpl::init()");
+    }
+&nbsp;
+    public addDataset(id: string, content: string, kind: InsightDatasetKind): Promise&lt;InsightResponse&gt; {
+        return new Promise(function (fulfill, reject) {
+            let msg: InsightResponse = {} as InsightResponse;
+            if (fs.existsSync(id + ".txt")) {
+                const errmes: string = "Add failed, the dataset is alreay added.";
+                const responsebody: InsightResponseErrorBody = { error: errmes };
+                msg = { code: 400, body: responsebody };
+                reject(msg);
+            } else {
+                if (kind === "rooms") {
+                    const unzippedArray: string[] = [];
+                    const cObjectArray: IRoom[] = [];
+                    const buildingArray: any = [];
+                    const roomGenFunctions: any = [];
+                    const latlonLocation: any = [];
+                    let roomArray: IRoom[] = [];
+                    zip.loadAsync(content, { base64: true }).then(function (unziped: any) {
+                        unziped.files["index.htm"].async("text").then(function (data: any) {
+                            const html: any = parse5.parse(data);
+                            const tbodyArray = findNode(html, "tbody");
+                            for (const table of tbodyArray) {
+                                const trArray = findNode(table, "tr");
+                                for (const tr of trArray) {
+                                    const building: IBuilding = {} as IBuilding;
+                                    const tdArray = findNode(tr, "td");
+&nbsp;
+                                    for (const td of tdArray) {
+                                        // fullname
+                                        if (td.attrs[0].value === "views-field views-field-title") {
+                                            const aArray = findNode(td, "a");
+                                            const a = aArray[0];
+                                            building.fullname = a.childNodes[0].value;
+                                        }
+&nbsp;
+                                        // shortname
+                                        if (td.attrs[0].value === "views-field views-field-field-building-code") {
+                                            building.shortname = td.childNodes[0].value.trim();
+                                        }
+&nbsp;
+                                        // filepath
+                                        if (td.attrs[0].value === "views-field views-field-nothing") {
+                                            const aArray = findNode(td, "a");
+                                            const a = aArray[0];
+                                            building.url = a.attrs[0].value.substr(2);
+                                            building.file = unziped.file(building.url);
+                                        }
+                                        // address,latlon
+                                        if (td.attrs[0].value === "views-field views-field-field-building-address") {
+                                            building.address = td.childNodes[0].value.trim();
+                                            // get geolocation by address
+                                            const uriAddress: string = encodeURIComponent(building.address.trim());
+                                            building.geourl =
+                                                "http://skaha.cs.ubc.ca:11316/api/v1/team38/" + uriAddress;
+                                            latlonLocation.push(latlonResponse(building.geourl));
+                                        }
+                                    }
+                                    buildingArray.push(building);
+                                }
+                            }
+&nbsp;
+                            Promise.all(latlonLocation).then(function (location: IGeoResponse[]) {
+                                for (let i = 0; i &lt; location.length; i++) {
+                                    <span class="missing-if-branch" title="else path not taken" >E</span>if (isUndefined(location[i].error)) {
+                                        buildingArray[i].lat = location[i].lat;
+                                        buildingArray[i].lon = location[i].lon;
+                                    }
+                                }
+                                // building array
+                                for (const building of buildingArray) {
+                                    roomGenFunctions.push(roomArrGenerator(building));
+                                }
+                                Promise.all(roomGenFunctions).then(function (ful: any[]) {
+                                    for (const f of ful) {
+                                        roomArray = roomArray.concat(f);
+                                    }
+                                    const roomdata = JSON.stringify(roomArray);
+                                    fs.writeFileSync(id + ".txt", roomdata);
+                                    const insightdataset: InsightDataset = { id, kind, numRows: roomArray.length };
+                                    datasets[id] = { meta: insightdataset, sub: roomArray };
+                                    msg.code = 204;
+                                    msg.body = { result: roomArray};
+                                    fulfill(msg);
+                                });
+                            }).catch(<span class="fstat-no" title="function not covered" >function (</span>err1: InsightResponse) {
+<span class="cstat-no" title="statement not covered" >                                err1 = { code: 400, body: { error: "Array of asyn Promises failed" } };</span>
+<span class="cstat-no" title="statement not covered" >                                reject(err1);</span>
+                            });
+                        }).catch(<span class="fstat-no" title="function not covered" >function (</span>err2: InsightResponse) {
+<span class="cstat-no" title="statement not covered" >                            err2 = { code: 400, body: { error: "Unzipping index.htm failed" } };</span>
+<span class="cstat-no" title="statement not covered" >                            reject(err2);</span>
+                        });
+                    }).catch(function (err3: InsightResponse) {
+                        err3 = { code: 400, body: { error: "zip loadAsync file failed" } };
+                        reject(err3);
+                    });
+                } else <span class="missing-if-branch" title="else path not taken" >E</span>if (kind === "courses") {
+                    const unzippedArray: string[] = [];
+                    const cObjectArray: ICourse[] = [];
+                    zip.loadAsync(content, { base64: true }).then(function (unzipped: any) {
+                        Object.keys(unzipped.files).forEach(function (filename: any) {
+                            unzippedArray.push(unzipped.files[filename].async("string"));
+                        });
+&nbsp;
+                        Promise.all(unzippedArray).then(function (myArray: string[]) {
+                            for (const item of myArray) {
+                                let parsed;
+                                if (item !== "") {
+                                    try {
+                                        parsed = JSON.parse(item);
+                                        <span class="missing-if-branch" title="else path not taken" >E</span>if (parsed.result !== []) {
+                                            for (const p of parsed.result) {
+                                                <span class="missing-if-branch" title="else path not taken" >E</span>if (p !== []) {
+                                                    const cObject: ICourse = {} as ICourse;
+                                                    cObject.courses_dept = p.Subject;
+                                                    cObject.courses_id = p.Course;
+                                                    cObject.courses_avg = p.Avg;
+                                                    cObject.courses_instructor = p.Professor;
+                                                    cObject.courses_title = p.Title;
+                                                    cObject.courses_pass = p.Pass;
+                                                    cObject.courses_fail = p.Fail;
+                                                    cObject.courses_audit = p.Audit;
+                                                    cObject.courses_uuid = p.id.toString();
+                                                    cObject.courses_section = p.Section;
+                                                    cObject.courses_lowestgrade = p.Low;
+                                                    cObject.courses_withdrew = p.Withdrew;
+                                                    if (p.Section === "overall") {
+                                                        cObject.courses_year = 1900;
+                                                    } else {
+                                                        cObject.courses_year = p.Year;
+                                                    }
+                                                    cObject.courses_highestgrade = p.High;
+                                                    cObject.courses_session = p.Session;
+                                                    cObject.courses_campus = p.Campus;
+                                                    cObjectArray.push(cObject);
+                                                }
+                                            }
+                                        }
+                                    } catch (err) {
+                                        Log.trace("file is invalid type");
+                                    }
+                                }
+                            }
+                            if (cObjectArray.length === 0) {
+                                const errmes: string = "Add failed, the dataset contains no valid files.";
+                                msg = { code: 400, body: { error: errmes } };
+                                return reject(msg);
+                            }
+                            const coursedata = JSON.stringify(cObjectArray);
+                            fs.writeFileSync(id + ".txt", coursedata);
+                            const insightdataset: InsightDataset = { id, kind, numRows: cObjectArray.length };
+                            // const dataset: IDataset = {meta: insightdataset, sub: cObjectArray};
+                            datasets[id] = { meta: insightdataset, sub: cObjectArray };
+                            msg.code = 204;
+                            msg.body = { result: cObjectArray };
+                            fulfill(msg);
+                        }).catch(<span class="fstat-no" title="function not covered" >function (</span>err1: InsightResponse) {
+<span class="cstat-no" title="statement not covered" >                            err1 = { code: 400, body: { error: "Array of asyn Promises failed" } };</span>
+<span class="cstat-no" title="statement not covered" >                            reject(err1);</span>
+                        });
+                    }).catch(function (err2: InsightResponse) {
+                        err2 = { code: 400, body: { error: "Unzipping file failed" } };
+                        reject(err2);
+                    });
+                }
+            }
+        });
+    }
+&nbsp;
+    public removeDataset(id: string): Promise&lt;InsightResponse&gt; {
+        return new Promise(function (fulfill, reject) {
+            const msg: InsightResponse = {} as InsightResponse;
+            if (fs.existsSync(id + ".txt")) { // there is file in disk
+                fs.truncateSync(id + ".txt", 0);
+                fs.unlinkSync(id + ".txt");
+                // delete dataset from memory here
+                delete datasets[id];
+                msg.code = 204;
+                msg.body = { result: "Data delete sucessufully" };
+                fulfill(msg);
+            } else {
+                msg.code = 404;
+                msg.body = { error: "Data is not exist in the disk or in variable, delete failed" };
+                reject(msg);
+            }
+        });
+    }
+&nbsp;
+    public performQuery(query: any): Promise&lt;InsightResponse&gt; {
+        return new Promise(function (fulfill, reject) {
+            if (query.WHERE === undefined // there is no where
+                || query.WHERE === JSON.stringify({})    // where is empty
+                || query.OPTIONS === undefined // there is no options
+                || query.OPTIONS === JSON.stringify({})    // options is empty
+                || query.OPTIONS.COLUMNS === undefined // there is no column
+                || query.OPTIONS.COLUMNS === JSON.stringify({})
+                || !isAllinColumns(query)) { // column is empty
+                const responsebody: InsightResponseErrorBody = { error: "wrong format" };
+                const result: InsightResponse = { code: 400, body: responsebody };
+                reject(result);
+            }
+            const querys: string = JSON.stringify(query);
+            if (querys.includes("courses_") !== querys.includes("rooms_")) {
+                // if this query is for course
+                let id: string;
+                if (querys.includes("courses_")) { id = "courses"; } else {id = "rooms"; }
+                const filteredData: string | Array&lt;IRoom | ICourse&gt; = AnalyzeFilter(id, query["WHERE"]);
+                if (typeof filteredData === "string") {
+                    const err: InsightResponseErrorBody = { error: filteredData };
+                    const res: InsightResponse = { code: 400, body: err };
+                    reject(res);
+                } else {
+                    let transformedData: string | any[];
+                    if (typeof query.TRANSFORMATIONS === "undefined") {
+                        transformedData = filteredData;
+                    } else {
+                        transformedData = AnalyzeTransformations(filteredData, query["TRANSFORMATIONS"]);
+                    }
+                    if (typeof transformedData === "string") {
+                        const err: InsightResponseErrorBody = { error: transformedData };
+                        const res: InsightResponse = { code: 400, body: err };
+                        reject(res);
+                    } else {
+                        let formatedData: string | Array&lt;ICourse | IRoom&gt; = [];
+                        if (transformedData.length !== 0) {
+                            formatedData = AnalyzeOptions(transformedData, query["OPTIONS"]);
+                        }
+                        if (typeof formatedData === "string") {
+                            const err: InsightResponseErrorBody = { error: formatedData };
+                            const res: InsightResponse = { code: 400, body: err };
+                            reject(res);
+                        } else {
+                            const suc: InsightResponseSuccessBody = { result: formatedData };
+                            const res: InsightResponse = { code: 200, body: suc };
+                            fulfill(res);
+                        }
+                    }
+                }
+            } else {
+                // wrong query format
+                const errbody: string = "wrong database name e.g. student_avg no database called student";
+                const err: InsightResponseErrorBody = { error: errbody };
+                const res: InsightResponse = { code: 400, body: err };
+                reject(res);
+&nbsp;
+            }
+        });
+    }
+&nbsp;
+    public listDatasets(): Promise&lt;InsightResponse&gt; {
+        return new Promise(function (fulfill) {
+            const content: InsightDataset[] = [];
+            for (const did of Object.keys(datasets)) {
+                let iDataset: IDataset;
+                iDataset = datasets[did];
+                let insightDataset: InsightDataset;
+                insightDataset = iDataset.meta;
+                content.push(insightDataset);
+            }
+            for (const o of content) {
+                Log.info(o.id);
+            }
+            const responsebody = { code: 200, body: { result: content } };
+            fulfill(responsebody);
+        });
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Mar 26 2018 00:40:55 GMT-0700 (PDT)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

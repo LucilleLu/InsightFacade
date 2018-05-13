@@ -1,0 +1,34 @@
+{
+    "title": "avg applyed on string type column",
+    "query": {
+        "WHERE": {
+            "GT": {
+                "courses_avg": 70
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_title",
+                "overallAvg"
+            ]
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "courses_title"
+            ],
+            "APPLY": [
+                {
+                    "overallAvg": {
+                        "AVG": "courses_title"
+                    }
+                }
+            ]
+        }
+    },
+    "response": {
+        "code": 400,
+        "body": {
+            "error":"avg applyed on string type column"
+        }
+    }
+}

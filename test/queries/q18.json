@@ -1,0 +1,17 @@
+{
+    "title": "Empty Or",
+    "query": {
+        "WHERE": {
+            "OR" : [
+
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": ["courses_dept", "courses_avg"],
+            "FORM": "TABLE"
+        }
+    },
+    "response": {
+        "code": 400,
+        "body": {"error":"Empty OR"}}
+}

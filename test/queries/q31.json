@@ -1,0 +1,228 @@
+{
+    "title": "select courses_dept where courses_avg > 97",
+    "query": {
+        "WHERE": {
+            "GT": {
+                "courses_avg": 97
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_title",
+                "courses_instructor",
+                "overallAvg"
+            ],
+            "ORDER": "courses_title"
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "courses_title",
+                "courses_instructor"
+            ],
+            "APPLY": [
+                {
+                    "overallAvg": {
+                        "AVG": "courses_avg"
+                    }
+                }
+            ]
+        }
+    },
+    "response": {
+        "code": 200,
+        "body": {
+            "result": [
+                {
+                    "courses_title": "acad assess schl",
+                    "courses_instructor": "",
+                    "overallAvg": 97.41
+                },
+                {
+                    "courses_title": "acad assess schl",
+                    "courses_instructor": "amaral, deborah;ford, laurie",
+                    "overallAvg": 97.78
+                },
+                {
+                    "courses_title": "algb geometry i",
+                    "courses_instructor": "",
+                    "overallAvg": 97.48
+                },
+                {
+                    "courses_title": "algb geometry i",
+                    "courses_instructor": "karu, kalle",
+                    "overallAvg": 97.48
+                },
+                {
+                    "courses_title": "algb topology i",
+                    "courses_instructor": "gomez, jose",
+                    "overallAvg": 99.78
+                },
+                {
+                    "courses_title": "algb topology i",
+                    "courses_instructor": "",
+                    "overallAvg": 99.78
+                },
+                {
+                    "courses_title": "assess lrn diffi",
+                    "courses_instructor": "cole, kenneth",
+                    "overallAvg": 98.02
+                },
+                {
+                    "courses_title": "assess lrn diffi",
+                    "courses_instructor": "",
+                    "overallAvg": 97.83
+                },
+                {
+                    "courses_title": "career planning",
+                    "courses_instructor": "",
+                    "overallAvg": 97.47
+                },
+                {
+                    "courses_title": "career planning",
+                    "courses_instructor": "neault, roberta a",
+                    "overallAvg": 97.47
+                },
+                {
+                    "courses_title": "career planning",
+                    "courses_instructor": "cox, daniel",
+                    "overallAvg": 99.19
+                },
+                {
+                    "courses_title": "cl pro prim care",
+                    "courses_instructor": "brew, nancy",
+                    "overallAvg": 98.71
+                },
+                {
+                    "courses_title": "cl pro prim care",
+                    "courses_instructor": "",
+                    "overallAvg": 98.46
+                },
+                {
+                    "courses_title": "cl pro prim care",
+                    "courses_instructor": "krist, jennifer",
+                    "overallAvg": 98.21
+                },
+                {
+                    "courses_title": "coll&uni teachng",
+                    "courses_instructor": "porath, marion",
+                    "overallAvg": 97.67
+                },
+                {
+                    "courses_title": "cor des ed res",
+                    "courses_instructor": "",
+                    "overallAvg": 97.09
+                },
+                {
+                    "courses_title": "cor des ed res",
+                    "courses_instructor": "kishor, nand",
+                    "overallAvg": 97.09
+                },
+                {
+                    "courses_title": "dev el sk df&hrd",
+                    "courses_instructor": "cannon, joanna",
+                    "overallAvg": 98.45
+                },
+                {
+                    "courses_title": "dev el sk df&hrd",
+                    "courses_instructor": "",
+                    "overallAvg": 98.45
+                },
+                {
+                    "courses_title": "diff geometry i",
+                    "courses_instructor": "fraser, ailana",
+                    "overallAvg": 97.25
+                },
+                {
+                    "courses_title": "diff geometry i",
+                    "courses_instructor": "",
+                    "overallAvg": 97.25
+                },
+                {
+                    "courses_title": "educ stds autism",
+                    "courses_instructor": "grow, laura",
+                    "overallAvg": 98.71
+                },
+                {
+                    "courses_title": "educ stds autism",
+                    "courses_instructor": "wilk, diana",
+                    "overallAvg": 97.41
+                },
+                {
+                    "courses_title": "educ stds autism",
+                    "courses_instructor": "",
+                    "overallAvg": 98.67
+                },
+                {
+                    "courses_title": "eth&profl issues",
+                    "courses_instructor": "",
+                    "overallAvg": 97.33
+                },
+                {
+                    "courses_title": "eth&profl issues",
+                    "courses_instructor": "brew, nancy",
+                    "overallAvg": 97.33
+                },
+                {
+                    "courses_title": "fam nrs pract",
+                    "courses_instructor": "burrows, marlene;harding, jillian;krist, jennifer;mccuaig, fairleth",
+                    "overallAvg": 98.02
+                },
+                {
+                    "courses_title": "fam nrs pract",
+                    "courses_instructor": "",
+                    "overallAvg": 98.3
+                },
+                {
+                    "courses_title": "harmonic anal i",
+                    "courses_instructor": "laba, izabella",
+                    "overallAvg": 97.09
+                },
+                {
+                    "courses_title": "harmonic anal i",
+                    "courses_instructor": "",
+                    "overallAvg": 97.09
+                },
+                {
+                    "courses_title": "multimedia sys",
+                    "courses_instructor": "",
+                    "overallAvg": 98.75
+                },
+                {
+                    "courses_title": "multimedia sys",
+                    "courses_instructor": "coria, lino",
+                    "overallAvg": 98.75
+                },
+                {
+                    "courses_title": "res mthd in educ",
+                    "courses_instructor": "morgan, tannis",
+                    "overallAvg": 97.5
+                },
+                {
+                    "courses_title": "sem in autism",
+                    "courses_instructor": "grow, laura",
+                    "overallAvg": 97.69
+                },
+                {
+                    "courses_title": "thesis",
+                    "courses_instructor": "maillard, keith",
+                    "overallAvg": 98
+                },
+                {
+                    "courses_title": "thesis",
+                    "courses_instructor": "grady, albert wayne",
+                    "overallAvg": 98
+                },
+                {
+                    "courses_title": "work int health",
+                    "courses_instructor": "frank, erica",
+                    "overallAvg": 98.98
+                },
+                {
+                    "courses_title": "work int health",
+                    "courses_instructor": "",
+                    "overallAvg": 98.98
+                }
+            ]
+        }
+    }
+}

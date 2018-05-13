@@ -1,0 +1,58 @@
+{
+    "title": "Any order key must be in the COLUMNS",
+    "query": {
+        "WHERE": {
+          "OR": [
+            {
+              "AND": [
+                {
+                  "GT": {
+                    "courses_avg": 90
+                  }
+                },
+                {
+                  "IS": {
+                    "courses_dept": "adhe"
+                  }
+                }
+              ]
+            },
+            {
+              "EQ": {
+                "courses_avg": 80
+              }
+            }
+          ]
+        },
+        "OPTIONS": {
+          "COLUMNS": [
+            "courses_dept",
+            "overallSum"
+          ],
+          "ORDER": {
+              "dir": "UP",
+              "keys": [
+                  "courses_title"
+              ]
+          }
+        },
+        "TRANSFORMATIONS": {
+          "GROUP": [
+            "courses_dept"
+          ],
+          "APPLY": [
+            {
+              "overallSum": {
+                "AVG": "courses_avg"
+              }
+            }
+          ]
+        }
+      },
+    "response": {
+        "code": 400,
+        "body": {
+            "error": "Any order key must be in the COLUMNS"
+        }
+    }
+}

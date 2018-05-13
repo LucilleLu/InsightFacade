@@ -1,0 +1,58 @@
+{
+    "title": "group by and apply sum",
+    "query": {
+        "WHERE": {
+            "GT": {
+                "courses_avg": 99
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_title",
+                "courses_instructor",
+                "overallMax"
+            ],
+            "ORDER": {
+                "dir": "UP",
+                "keys": [
+                    "courses_title"
+                ]
+            }
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "courses_title",
+                "courses_instructor"
+            ],
+            "APPLY": [
+                {
+                    "overallMax": {
+                        "MAX": "courses_avg"
+                    }
+                }
+            ]
+        }
+    },
+    "response": {
+        "code": 200,
+        "body": {
+            "result": [
+                {
+                    "courses_title": "algb topology i",
+                    "courses_instructor": "gomez, jose",
+                    "overallMax": 99.78
+                },
+                {
+                    "courses_title": "algb topology i",
+                    "courses_instructor": "",
+                    "overallMax": 99.78
+                },
+                {
+                    "courses_title": "career planning",
+                    "courses_instructor": "cox, daniel",
+                    "overallMax": 99.19
+                }
+            ]
+        }
+    }
+}

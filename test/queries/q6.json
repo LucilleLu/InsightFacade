@@ -1,0 +1,79 @@
+{
+    "title": "test wild card *a",
+    "query": {
+        "WHERE": {
+            "AND" : [
+                {
+                    "IS": {
+                        "courses_instructor": "*a"
+                    }
+                },
+                {
+                    "IS":{
+                        "courses_dept": "cpsc"
+                    }
+                }
+            ]
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_instructor",
+                "courses_dept"
+            ]
+        }
+    },
+    "response": {
+        "code": 200,
+        "body": {"result":[
+            {"courses_instructor":"mcgrenere, joanna","courses_dept":"cpsc"},
+            {"courses_instructor":"berg, celina","courses_dept":"cpsc"},
+            {"courses_instructor":"berg, celina","courses_dept":"cpsc"},
+            {"courses_instructor":"mcgrenere, joanna","courses_dept":"cpsc"},
+            {"courses_instructor":"mcgrenere, joanna","courses_dept":"cpsc"},
+            {"courses_instructor":"cooper, kendra","courses_dept":"cpsc"},
+            {"courses_instructor":"baniassad, elisa","courses_dept":"cpsc"},
+            {"courses_instructor":"baniassad, elisa","courses_dept":"cpsc"},
+            {"courses_instructor":"baniassad, elisa","courses_dept":"cpsc"},
+            {"courses_instructor":"baniassad, elisa","courses_dept":"cpsc"},
+            {"courses_instructor":"munzner, tamara","courses_dept":"cpsc"},
+            {"courses_instructor":"munzner, tamara","courses_dept":"cpsc"},
+            {"courses_instructor":"darwish, mohammad mostafa","courses_dept":"cpsc"},
+            {"courses_instructor":"munzner, tamara","courses_dept":"cpsc"},
+            {"courses_instructor":"cooper, kendra","courses_dept":"cpsc"},
+            {"courses_instructor":"sheffer, alla","courses_dept":"cpsc"},
+            {"courses_instructor":"baniassad, elisa","courses_dept":"cpsc"},
+            {"courses_instructor":"baniassad, elisa","courses_dept":"cpsc"},
+            {"courses_instructor":"baniassad, elisa","courses_dept":"cpsc"},
+            {"courses_instructor":"baniassad, elisa","courses_dept":"cpsc"},
+            {"courses_instructor":"dunfield, joshua","courses_dept":"cpsc"},
+            {"courses_instructor":"munzner, tamara","courses_dept":"cpsc"},
+            {"courses_instructor":"sheffer, alla","courses_dept":"cpsc"},
+            {"courses_instructor":"sheffer, alla","courses_dept":"cpsc"},
+            {"courses_instructor":"munzner, tamara","courses_dept":"cpsc"},
+            {"courses_instructor":"sheffer, alla","courses_dept":"cpsc"},
+            {"courses_instructor":"munzner, tamara","courses_dept":"cpsc"},
+            {"courses_instructor":"munzner, tamara","courses_dept":"cpsc"},
+            {"courses_instructor":"conati, cristina","courses_dept":"cpsc"},
+            {"courses_instructor":"conati, cristina","courses_dept":"cpsc"},
+            {"courses_instructor":"conati, cristina","courses_dept":"cpsc"},
+            {"courses_instructor":"conati, cristina","courses_dept":"cpsc"},
+            {"courses_instructor":"conati, cristina","courses_dept":"cpsc"},
+            {"courses_instructor":"conati, cristina","courses_dept":"cpsc"},
+            {"courses_instructor":"dawson, jessica","courses_dept":"cpsc"},
+            {"courses_instructor":"baniassad, elisa","courses_dept":"cpsc"},
+            {"courses_instructor":"baniassad, elisa","courses_dept":"cpsc"},
+            {"courses_instructor":"conati, cristina","courses_dept":"cpsc"},
+            {"courses_instructor":"conati, cristina","courses_dept":"cpsc"},
+            {"courses_instructor":"dawson, jessica","courses_dept":"cpsc"},
+            {"courses_instructor":"mcgrenere, joanna","courses_dept":"cpsc"},
+            {"courses_instructor":"mcgrenere, joanna","courses_dept":"cpsc"},
+            {"courses_instructor":"mcgrenere, joanna","courses_dept":"cpsc"},
+            {"courses_instructor":"dawson, jessica","courses_dept":"cpsc"},
+            {"courses_instructor":"mcgrenere, joanna","courses_dept":"cpsc"},
+            {"courses_instructor":"conati, cristina","courses_dept":"cpsc"},
+            {"courses_instructor":"conati, cristina","courses_dept":"cpsc"},
+            {"courses_instructor":"dawson, jessica","courses_dept":"cpsc"},
+            {"courses_instructor":"mcgrenere, joanna","courses_dept":"cpsc"},
+            {"courses_instructor":"munzner, tamara","courses_dept":"cpsc"},
+            {"courses_instructor":"munzner, tamara","courses_dept":"cpsc"}]}
+}}

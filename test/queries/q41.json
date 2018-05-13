@@ -1,0 +1,787 @@
+{
+    "title": "empty where",
+    "query": {
+        "WHERE": {},
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_dept",
+                "overallSum"
+            ]
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "courses_dept"
+            ],
+            "APPLY": [
+                {
+                    "overallSum": {
+                        "SUM": "courses_avg"
+                    }
+                }
+            ]
+        }
+    },
+    "response": {
+        "code": 200,
+        "body": {
+            "result": [
+                {
+                    "courses_dept": "aanb",
+                    "overallSum": 364.54
+                },
+                {
+                    "courses_dept": "adhe",
+                    "overallSum": 19241.49
+                },
+                {
+                    "courses_dept": "anat",
+                    "overallSum": 2546.94
+                },
+                {
+                    "courses_dept": "anth",
+                    "overallSum": 21637.01
+                },
+                {
+                    "courses_dept": "apbi",
+                    "overallSum": 38266
+                },
+                {
+                    "courses_dept": "appp",
+                    "overallSum": 645.58
+                },
+                {
+                    "courses_dept": "apsc",
+                    "overallSum": 50187.54
+                },
+                {
+                    "courses_dept": "arbc",
+                    "overallSum": 1281.2
+                },
+                {
+                    "courses_dept": "arch",
+                    "overallSum": 55646.25
+                },
+                {
+                    "courses_dept": "arcl",
+                    "overallSum": 3445.92
+                },
+                {
+                    "courses_dept": "arst",
+                    "overallSum": 21204.8
+                },
+                {
+                    "courses_dept": "arth",
+                    "overallSum": 32937.45
+                },
+                {
+                    "courses_dept": "asia",
+                    "overallSum": 46882.22
+                },
+                {
+                    "courses_dept": "asic",
+                    "overallSum": 1307.86
+                },
+                {
+                    "courses_dept": "astr",
+                    "overallSum": 14432.23
+                },
+                {
+                    "courses_dept": "astu",
+                    "overallSum": 3758.02
+                },
+                {
+                    "courses_dept": "atsc",
+                    "overallSum": 6257.4
+                },
+                {
+                    "courses_dept": "audi",
+                    "overallSum": 48786.25
+                },
+                {
+                    "courses_dept": "ba",
+                    "overallSum": 12220.61
+                },
+                {
+                    "courses_dept": "baac",
+                    "overallSum": 12439.94
+                },
+                {
+                    "courses_dept": "babs",
+                    "overallSum": 4287.84
+                },
+                {
+                    "courses_dept": "baen",
+                    "overallSum": 7181.1
+                },
+                {
+                    "courses_dept": "bafi",
+                    "overallSum": 26409.28
+                },
+                {
+                    "courses_dept": "bahr",
+                    "overallSum": 14235.27
+                },
+                {
+                    "courses_dept": "bait",
+                    "overallSum": 7473.94
+                },
+                {
+                    "courses_dept": "bala",
+                    "overallSum": 1309.8
+                },
+                {
+                    "courses_dept": "bama",
+                    "overallSum": 15400.05
+                },
+                {
+                    "courses_dept": "bams",
+                    "overallSum": 16556.46
+                },
+                {
+                    "courses_dept": "bapa",
+                    "overallSum": 3988.82
+                },
+                {
+                    "courses_dept": "basc",
+                    "overallSum": 7231.03
+                },
+                {
+                    "courses_dept": "basm",
+                    "overallSum": 13620.74
+                },
+                {
+                    "courses_dept": "baul",
+                    "overallSum": 1488
+                },
+                {
+                    "courses_dept": "bioc",
+                    "overallSum": 23057.48
+                },
+                {
+                    "courses_dept": "biof",
+                    "overallSum": 2064.63
+                },
+                {
+                    "courses_dept": "biol",
+                    "overallSum": 155104.34
+                },
+                {
+                    "courses_dept": "bmeg",
+                    "overallSum": 8398.3
+                },
+                {
+                    "courses_dept": "bota",
+                    "overallSum": 2622.1
+                },
+                {
+                    "courses_dept": "busi",
+                    "overallSum": 119158.99
+                },
+                {
+                    "courses_dept": "caps",
+                    "overallSum": 6979.4
+                },
+                {
+                    "courses_dept": "ccst",
+                    "overallSum": 4202.48
+                },
+                {
+                    "courses_dept": "ceen",
+                    "overallSum": 4549.59
+                },
+                {
+                    "courses_dept": "cell",
+                    "overallSum": 12836.6
+                },
+                {
+                    "courses_dept": "cens",
+                    "overallSum": 6915.32
+                },
+                {
+                    "courses_dept": "chbe",
+                    "overallSum": 63319.16
+                },
+                {
+                    "courses_dept": "chem",
+                    "overallSum": 93157.07
+                },
+                {
+                    "courses_dept": "chil",
+                    "overallSum": 2400.88
+                },
+                {
+                    "courses_dept": "chin",
+                    "overallSum": 74466.93
+                },
+                {
+                    "courses_dept": "cics",
+                    "overallSum": 2311.68
+                },
+                {
+                    "courses_dept": "civl",
+                    "overallSum": 99142.75
+                },
+                {
+                    "courses_dept": "clch",
+                    "overallSum": 1061.76
+                },
+                {
+                    "courses_dept": "clst",
+                    "overallSum": 25488.97
+                },
+                {
+                    "courses_dept": "cnps",
+                    "overallSum": 62666.26
+                },
+                {
+                    "courses_dept": "cnrs",
+                    "overallSum": 2439.18
+                },
+                {
+                    "courses_dept": "cnto",
+                    "overallSum": 432.66
+                },
+                {
+                    "courses_dept": "coec",
+                    "overallSum": 1318.13
+                },
+                {
+                    "courses_dept": "cogs",
+                    "overallSum": 10557.71
+                },
+                {
+                    "courses_dept": "cohr",
+                    "overallSum": 13916.62
+                },
+                {
+                    "courses_dept": "comm",
+                    "overallSum": 272595.35
+                },
+                {
+                    "courses_dept": "cons",
+                    "overallSum": 16921.35
+                },
+                {
+                    "courses_dept": "cpen",
+                    "overallSum": 3429.4
+                },
+                {
+                    "courses_dept": "cpsc",
+                    "overallSum": 86189.91
+                },
+                {
+                    "courses_dept": "crwr",
+                    "overallSum": 17282.78
+                },
+                {
+                    "courses_dept": "dani",
+                    "overallSum": 2172.8
+                },
+                {
+                    "courses_dept": "dent",
+                    "overallSum": 31784.97
+                },
+                {
+                    "courses_dept": "dhyg",
+                    "overallSum": 28119.91
+                },
+                {
+                    "courses_dept": "eced",
+                    "overallSum": 12476.23
+                },
+                {
+                    "courses_dept": "econ",
+                    "overallSum": 171190.52
+                },
+                {
+                    "courses_dept": "edcp",
+                    "overallSum": 23863.7
+                },
+                {
+                    "courses_dept": "edst",
+                    "overallSum": 32590.74
+                },
+                {
+                    "courses_dept": "educ",
+                    "overallSum": 15319.87
+                },
+                {
+                    "courses_dept": "eece",
+                    "overallSum": 42782.11
+                },
+                {
+                    "courses_dept": "elec",
+                    "overallSum": 9928.75
+                },
+                {
+                    "courses_dept": "ends",
+                    "overallSum": 11769.6
+                },
+                {
+                    "courses_dept": "engl",
+                    "overallSum": 156952.79
+                },
+                {
+                    "courses_dept": "enph",
+                    "overallSum": 4423.71
+                },
+                {
+                    "courses_dept": "envr",
+                    "overallSum": 6781.2
+                },
+                {
+                    "courses_dept": "eosc",
+                    "overallSum": 128116.51
+                },
+                {
+                    "courses_dept": "epse",
+                    "overallSum": 99019.87
+                },
+                {
+                    "courses_dept": "etec",
+                    "overallSum": 36775.88
+                },
+                {
+                    "courses_dept": "fhis",
+                    "overallSum": 311.04
+                },
+                {
+                    "courses_dept": "fipr",
+                    "overallSum": 14374.3
+                },
+                {
+                    "courses_dept": "fish",
+                    "overallSum": 3856.38
+                },
+                {
+                    "courses_dept": "fist",
+                    "overallSum": 15641.22
+                },
+                {
+                    "courses_dept": "fmst",
+                    "overallSum": 20952.62
+                },
+                {
+                    "courses_dept": "fnel",
+                    "overallSum": 1620.72
+                },
+                {
+                    "courses_dept": "fnh",
+                    "overallSum": 60040.05
+                },
+                {
+                    "courses_dept": "fnis",
+                    "overallSum": 1398.98
+                },
+                {
+                    "courses_dept": "food",
+                    "overallSum": 13393.06
+                },
+                {
+                    "courses_dept": "fopr",
+                    "overallSum": 7819.84
+                },
+                {
+                    "courses_dept": "fre",
+                    "overallSum": 20166.08
+                },
+                {
+                    "courses_dept": "fren",
+                    "overallSum": 75280.02
+                },
+                {
+                    "courses_dept": "frst",
+                    "overallSum": 71091.2
+                },
+                {
+                    "courses_dept": "gbpr",
+                    "overallSum": 339.6
+                },
+                {
+                    "courses_dept": "geob",
+                    "overallSum": 24861.83
+                },
+                {
+                    "courses_dept": "geog",
+                    "overallSum": 68500.31
+                },
+                {
+                    "courses_dept": "germ",
+                    "overallSum": 66305.94
+                },
+                {
+                    "courses_dept": "gpp",
+                    "overallSum": 2037.3
+                },
+                {
+                    "courses_dept": "grek",
+                    "overallSum": 2211.12
+                },
+                {
+                    "courses_dept": "grsj",
+                    "overallSum": 12836.93
+                },
+                {
+                    "courses_dept": "gsat",
+                    "overallSum": 2459.02
+                },
+                {
+                    "courses_dept": "hebr",
+                    "overallSum": 1399.38
+                },
+                {
+                    "courses_dept": "hgse",
+                    "overallSum": 6035.72
+                },
+                {
+                    "courses_dept": "hinu",
+                    "overallSum": 1348.41
+                },
+                {
+                    "courses_dept": "hist",
+                    "overallSum": 74799.57
+                },
+                {
+                    "courses_dept": "hunu",
+                    "overallSum": 2248.1
+                },
+                {
+                    "courses_dept": "iar",
+                    "overallSum": 423.03
+                },
+                {
+                    "courses_dept": "igen",
+                    "overallSum": 4472.06
+                },
+                {
+                    "courses_dept": "info",
+                    "overallSum": 170.8
+                },
+                {
+                    "courses_dept": "isci",
+                    "overallSum": 5796.45
+                },
+                {
+                    "courses_dept": "ital",
+                    "overallSum": 24280.36
+                },
+                {
+                    "courses_dept": "itst",
+                    "overallSum": 7473.06
+                },
+                {
+                    "courses_dept": "iwme",
+                    "overallSum": 168
+                },
+                {
+                    "courses_dept": "japn",
+                    "overallSum": 70695.54
+                },
+                {
+                    "courses_dept": "jrnl",
+                    "overallSum": 2972.58
+                },
+                {
+                    "courses_dept": "kin",
+                    "overallSum": 54737.68
+                },
+                {
+                    "courses_dept": "korn",
+                    "overallSum": 6412.4
+                },
+                {
+                    "courses_dept": "lais",
+                    "overallSum": 346.08
+                },
+                {
+                    "courses_dept": "larc",
+                    "overallSum": 25990.1
+                },
+                {
+                    "courses_dept": "laso",
+                    "overallSum": 1029.34
+                },
+                {
+                    "courses_dept": "last",
+                    "overallSum": 2415.2
+                },
+                {
+                    "courses_dept": "latn",
+                    "overallSum": 3519.18
+                },
+                {
+                    "courses_dept": "law",
+                    "overallSum": 84747.65
+                },
+                {
+                    "courses_dept": "lfs",
+                    "overallSum": 11369.65
+                },
+                {
+                    "courses_dept": "libe",
+                    "overallSum": 9187.27
+                },
+                {
+                    "courses_dept": "libr",
+                    "overallSum": 40333.57
+                },
+                {
+                    "courses_dept": "ling",
+                    "overallSum": 39021.25
+                },
+                {
+                    "courses_dept": "lled",
+                    "overallSum": 47579.69
+                },
+                {
+                    "courses_dept": "math",
+                    "overallSum": 199657.15
+                },
+                {
+                    "courses_dept": "mdvl",
+                    "overallSum": 1497.84
+                },
+                {
+                    "courses_dept": "mech",
+                    "overallSum": 101520.38
+                },
+                {
+                    "courses_dept": "medg",
+                    "overallSum": 20887.14
+                },
+                {
+                    "courses_dept": "medi",
+                    "overallSum": 11011.94
+                },
+                {
+                    "courses_dept": "micb",
+                    "overallSum": 38015.14
+                },
+                {
+                    "courses_dept": "midw",
+                    "overallSum": 14255.28
+                },
+                {
+                    "courses_dept": "mine",
+                    "overallSum": 42116.06
+                },
+                {
+                    "courses_dept": "mrne",
+                    "overallSum": 3376.22
+                },
+                {
+                    "courses_dept": "mtrl",
+                    "overallSum": 53305.36
+                },
+                {
+                    "courses_dept": "musc",
+                    "overallSum": 68160.02
+                },
+                {
+                    "courses_dept": "name",
+                    "overallSum": 3554.32
+                },
+                {
+                    "courses_dept": "nest",
+                    "overallSum": 6082.83
+                },
+                {
+                    "courses_dept": "nrsc",
+                    "overallSum": 6399.2
+                },
+                {
+                    "courses_dept": "nurs",
+                    "overallSum": 76918.76
+                },
+                {
+                    "courses_dept": "obst",
+                    "overallSum": 5377.01
+                },
+                {
+                    "courses_dept": "onco",
+                    "overallSum": 1616.8
+                },
+                {
+                    "courses_dept": "path",
+                    "overallSum": 38697.23
+                },
+                {
+                    "courses_dept": "pcth",
+                    "overallSum": 16055.9
+                },
+                {
+                    "courses_dept": "pers",
+                    "overallSum": 4018.64
+                },
+                {
+                    "courses_dept": "phar",
+                    "overallSum": 65894.47
+                },
+                {
+                    "courses_dept": "phil",
+                    "overallSum": 24314.36
+                },
+                {
+                    "courses_dept": "phrm",
+                    "overallSum": 926.54
+                },
+                {
+                    "courses_dept": "phth",
+                    "overallSum": 10564.04
+                },
+                {
+                    "courses_dept": "phys",
+                    "overallSum": 85323.53
+                },
+                {
+                    "courses_dept": "plan",
+                    "overallSum": 13061.09
+                },
+                {
+                    "courses_dept": "poli",
+                    "overallSum": 38492.42
+                },
+                {
+                    "courses_dept": "pols",
+                    "overallSum": 1788.58
+                },
+                {
+                    "courses_dept": "port",
+                    "overallSum": 3999.58
+                },
+                {
+                    "courses_dept": "psyc",
+                    "overallSum": 101621.55
+                },
+                {
+                    "courses_dept": "punj",
+                    "overallSum": 5507.92
+                },
+                {
+                    "courses_dept": "relg",
+                    "overallSum": 8283.52
+                },
+                {
+                    "courses_dept": "rgla",
+                    "overallSum": 1242.28
+                },
+                {
+                    "courses_dept": "rhsc",
+                    "overallSum": 18057.35
+                },
+                {
+                    "courses_dept": "rmes",
+                    "overallSum": 12327.82
+                },
+                {
+                    "courses_dept": "rmst",
+                    "overallSum": 1398.52
+                },
+                {
+                    "courses_dept": "rsot",
+                    "overallSum": 14069.53
+                },
+                {
+                    "courses_dept": "russ",
+                    "overallSum": 9944.46
+                },
+                {
+                    "courses_dept": "sans",
+                    "overallSum": 1698.38
+                },
+                {
+                    "courses_dept": "scan",
+                    "overallSum": 3082.32
+                },
+                {
+                    "courses_dept": "scie",
+                    "overallSum": 10526.78
+                },
+                {
+                    "courses_dept": "soci",
+                    "overallSum": 24619.49
+                },
+                {
+                    "courses_dept": "soil",
+                    "overallSum": 5272.14
+                },
+                {
+                    "courses_dept": "sowk",
+                    "overallSum": 45012.12
+                },
+                {
+                    "courses_dept": "span",
+                    "overallSum": 48767.89
+                },
+                {
+                    "courses_dept": "spha",
+                    "overallSum": 26233.51
+                },
+                {
+                    "courses_dept": "spph",
+                    "overallSum": 53370.14
+                },
+                {
+                    "courses_dept": "stat",
+                    "overallSum": 29238.45
+                },
+                {
+                    "courses_dept": "sts",
+                    "overallSum": 1046.94
+                },
+                {
+                    "courses_dept": "surg",
+                    "overallSum": 3543.95
+                },
+                {
+                    "courses_dept": "swed",
+                    "overallSum": 2202.28
+                },
+                {
+                    "courses_dept": "test",
+                    "overallSum": 60
+                },
+                {
+                    "courses_dept": "thtr",
+                    "overallSum": 44548.53
+                },
+                {
+                    "courses_dept": "udes",
+                    "overallSum": 1359.68
+                },
+                {
+                    "courses_dept": "ufor",
+                    "overallSum": 489.04
+                },
+                {
+                    "courses_dept": "urst",
+                    "overallSum": 2498.66
+                },
+                {
+                    "courses_dept": "ursy",
+                    "overallSum": 321.44
+                },
+                {
+                    "courses_dept": "vant",
+                    "overallSum": 1366.21
+                },
+                {
+                    "courses_dept": "visa",
+                    "overallSum": 46152.03
+                },
+                {
+                    "courses_dept": "wood",
+                    "overallSum": 26070.95
+                },
+                {
+                    "courses_dept": "wrds",
+                    "overallSum": 9909.88
+                },
+                {
+                    "courses_dept": "zool",
+                    "overallSum": 3203.23
+                }
+            ]
+        }
+    }
+}

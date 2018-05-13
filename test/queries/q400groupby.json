@@ -1,0 +1,30 @@
+{
+    "title": "group by format wrong",
+    "query": {
+        "WHERE": {},
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_dept",
+                "overallSum"
+            ]
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "course_a_a"
+            ],
+            "APPLY": [
+                {
+                    "overallSum": {
+                        "AVG": "courses_avg"
+                    }
+                }
+            ]
+        }
+    },
+    "response": {
+        "code": 400,
+        "body": {
+            "error" : "group by format wrong"
+        }
+    }
+}

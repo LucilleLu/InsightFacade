@@ -1,0 +1,22 @@
+{
+    "title": "code 424 dataset does not exit",
+    "query": {
+        "WHERE": {
+            "GT": {
+                "coursesaaa_avg":97
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_dept",
+                "courses_avg"
+            ],
+            "ORDER": "courses_avg",
+            "FORM": "TABLE"
+        }
+    },
+    "response": {
+        "code": 400,
+        "body": {"error":"missing dataset(s) coursesaaa"}
+    }
+}

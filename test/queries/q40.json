@@ -1,0 +1,2451 @@
+{
+    "title": "to check 2 decimal sum",
+    "query": {
+        "WHERE": {
+            "GT": {
+                "courses_avg": 90
+            }
+        },
+        "OPTIONS": {
+            "COLUMNS": [
+                "courses_title",
+                "overallSum"
+            ]
+        },
+        "TRANSFORMATIONS": {
+            "GROUP": [
+                "courses_title"
+            ],
+            "APPLY": [
+                {
+                    "overallSum": {
+                        "SUM": "courses_avg"
+                    }
+                }
+            ]
+        }
+    },
+    "response": {
+        "code": 200,
+        "body": {
+            "result": [
+                {
+                    "courses_title": "rsrch methdlgy",
+                    "overallSum": 188.88
+                },
+                {
+                    "courses_title": "dev wkshp/sem",
+                    "overallSum": 462.82
+                },
+                {
+                    "courses_title": "com adult educ",
+                    "overallSum": 727.67
+                },
+                {
+                    "courses_title": "adul educ",
+                    "overallSum": 180.34
+                },
+                {
+                    "courses_title": "fnd bdy dsgn:bsc",
+                    "overallSum": 184
+                },
+                {
+                    "courses_title": "fnc hmn ant h&n",
+                    "overallSum": 183.34
+                },
+                {
+                    "courses_title": "hist anth thght",
+                    "overallSum": 181.84
+                },
+                {
+                    "courses_title": "sem medical anth",
+                    "overallSum": 276.58
+                },
+                {
+                    "courses_title": "tpcs appl biolgy",
+                    "overallSum": 91.86
+                },
+                {
+                    "courses_title": "eng mtls lab",
+                    "overallSum": 2035.17
+                },
+                {
+                    "courses_title": "info tech&archvs",
+                    "overallSum": 556.86
+                },
+                {
+                    "courses_title": "aud&non-txt arch",
+                    "overallSum": 193.88
+                },
+                {
+                    "courses_title": "mangmt info orgs",
+                    "overallSum": 180.94
+                },
+                {
+                    "courses_title": "adv std min area",
+                    "overallSum": 186
+                },
+                {
+                    "courses_title": "master's thesis",
+                    "overallSum": 822.17
+                },
+                {
+                    "courses_title": "astronomical lab",
+                    "overallSum": 182.8
+                },
+                {
+                    "courses_title": "honours thesis",
+                    "overallSum": 1107.02
+                },
+                {
+                    "courses_title": "bndry-lyr metrly",
+                    "overallSum": 184
+                },
+                {
+                    "courses_title": "acous & art phon",
+                    "overallSum": 182.8
+                },
+                {
+                    "courses_title": "hearing sci ii",
+                    "overallSum": 922.44
+                },
+                {
+                    "courses_title": "comm disorders",
+                    "overallSum": 373.62
+                },
+                {
+                    "courses_title": "disord sp prod",
+                    "overallSum": 180.76
+                },
+                {
+                    "courses_title": "acquired lng dis",
+                    "overallSum": 366.78
+                },
+                {
+                    "courses_title": "aural rehb i",
+                    "overallSum": 363.7
+                },
+                {
+                    "courses_title": "hearng and noise",
+                    "overallSum": 365.5
+                },
+                {
+                    "courses_title": "diag audio ii",
+                    "overallSum": 362.9
+                },
+                {
+                    "courses_title": "amplification ii",
+                    "overallSum": 184.9
+                },
+                {
+                    "courses_title": "phyl ms aud func",
+                    "overallSum": 744.48
+                },
+                {
+                    "courses_title": "pediatric audio",
+                    "overallSum": 372.48
+                },
+                {
+                    "courses_title": "audi adv prc i",
+                    "overallSum": 365.66
+                },
+                {
+                    "courses_title": "audi prctcm iii",
+                    "overallSum": 734.52
+                },
+                {
+                    "courses_title": "audi adv prc ii",
+                    "overallSum": 372.88
+                },
+                {
+                    "courses_title": "audi prctcm iv",
+                    "overallSum": 1126.25
+                },
+                {
+                    "courses_title": "phono intervent",
+                    "overallSum": 363.2
+                },
+                {
+                    "courses_title": "lang dev&dis sch",
+                    "overallSum": 181.9
+                },
+                {
+                    "courses_title": "tpcs flu disord",
+                    "overallSum": 545.82
+                },
+                {
+                    "courses_title": "as in s&s disord",
+                    "overallSum": 368.5
+                },
+                {
+                    "courses_title": "adv speech scie",
+                    "overallSum": 180.24
+                },
+                {
+                    "courses_title": "lang dev life",
+                    "overallSum": 186.4
+                },
+                {
+                    "courses_title": "sp-lg pth prc i",
+                    "overallSum": 182.66
+                },
+                {
+                    "courses_title": "sp-lg pth pr iii",
+                    "overallSum": 543.42
+                },
+                {
+                    "courses_title": "forecasting mgmt",
+                    "overallSum": 182.76
+                },
+                {
+                    "courses_title": "app mng scie i",
+                    "overallSum": 180.46
+                },
+                {
+                    "courses_title": "prob mgmt models",
+                    "overallSum": 182.94
+                },
+                {
+                    "courses_title": "membrane str&fnc",
+                    "overallSum": 361.16
+                },
+                {
+                    "courses_title": "adv tpcs mole bi",
+                    "overallSum": 361.34
+                },
+                {
+                    "courses_title": "prob-bsd lrn bio",
+                    "overallSum": 737.9
+                },
+                {
+                    "courses_title": "prin&meth rsch i",
+                    "overallSum": 365.34
+                },
+                {
+                    "courses_title": "plant genomics",
+                    "overallSum": 182.42
+                },
+                {
+                    "courses_title": "biology research",
+                    "overallSum": 1092.06
+                },
+                {
+                    "courses_title": "ecolg plant bioc",
+                    "overallSum": 551.4
+                },
+                {
+                    "courses_title": "animal dvl gntcs",
+                    "overallSum": 184.72
+                },
+                {
+                    "courses_title": "med tech project",
+                    "overallSum": 372.1
+                },
+                {
+                    "courses_title": "master eng proj",
+                    "overallSum": 190
+                },
+                {
+                    "courses_title": "m.a. sc. thesis",
+                    "overallSum": 273
+                },
+                {
+                    "courses_title": "sem in botany",
+                    "overallSum": 181.42
+                },
+                {
+                    "courses_title": "topics plnt bioc",
+                    "overallSum": 184
+                },
+                {
+                    "courses_title": "plant molec lab",
+                    "overallSum": 182
+                },
+                {
+                    "courses_title": "grad prac",
+                    "overallSum": 187.34
+                },
+                {
+                    "courses_title": "project & report",
+                    "overallSum": 644.69
+                },
+                {
+                    "courses_title": "tpcs cell comm",
+                    "overallSum": 181.72
+                },
+                {
+                    "courses_title": "tpc cytosk&cl mo",
+                    "overallSum": 368.78
+                },
+                {
+                    "courses_title": "tpc int-cel traf",
+                    "overallSum": 920.3
+                },
+                {
+                    "courses_title": "fluor microscpy",
+                    "overallSum": 1470.62
+                },
+                {
+                    "courses_title": "tech cel&dev bio",
+                    "overallSum": 363.16
+                },
+                {
+                    "courses_title": "gen&cell therapy",
+                    "overallSum": 184.8
+                },
+                {
+                    "courses_title": "ths prop: biotec",
+                    "overallSum": 189.5
+                },
+                {
+                    "courses_title": "ths: biotech tpc",
+                    "overallSum": 181.5
+                },
+                {
+                    "courses_title": "thermodynamics",
+                    "overallSum": 371.74
+                },
+                {
+                    "courses_title": "math operations",
+                    "overallSum": 1101.86
+                },
+                {
+                    "courses_title": "appl heterog cat",
+                    "overallSum": 183.6
+                },
+                {
+                    "courses_title": "air polutn cntrl",
+                    "overallSum": 182
+                },
+                {
+                    "courses_title": "energy enginring",
+                    "overallSum": 181
+                },
+                {
+                    "courses_title": "masc thesis dev",
+                    "overallSum": 180.9
+                },
+                {
+                    "courses_title": "masc thesis",
+                    "overallSum": 547.42
+                },
+                {
+                    "courses_title": "quant mech chem",
+                    "overallSum": 181.5
+                },
+                {
+                    "courses_title": "crystal structre",
+                    "overallSum": 366.26
+                },
+                {
+                    "courses_title": "bioanalyt chem",
+                    "overallSum": 365.86
+                },
+                {
+                    "courses_title": "prin chem separ",
+                    "overallSum": 365.86
+                },
+                {
+                    "courses_title": "child's lit",
+                    "overallSum": 823.17
+                },
+                {
+                    "courses_title": "opt&dcs anl civl",
+                    "overallSum": 180.22
+                },
+                {
+                    "courses_title": "envr'tl lab anly",
+                    "overallSum": 180.88
+                },
+                {
+                    "courses_title": "adv steel design",
+                    "overallSum": 182.12
+                },
+                {
+                    "courses_title": "matrx struc anly",
+                    "overallSum": 180.44
+                },
+                {
+                    "courses_title": "transprt'n eng 2",
+                    "overallSum": 180.52
+                },
+                {
+                    "courses_title": "trns sys pl&anly",
+                    "overallSum": 180.78
+                },
+                {
+                    "courses_title": "desig & analys 2",
+                    "overallSum": 182.92
+                },
+                {
+                    "courses_title": "seismic rsp strc",
+                    "overallSum": 367.1
+                },
+                {
+                    "courses_title": "dynam struct 2",
+                    "overallSum": 373.54
+                },
+                {
+                    "courses_title": "adv tpcs stl str",
+                    "overallSum": 183.12
+                },
+                {
+                    "courses_title": "adv tpcs tmbr st",
+                    "overallSum": 182.64
+                },
+                {
+                    "courses_title": "3d mdl cost est",
+                    "overallSum": 90.2
+                },
+                {
+                    "courses_title": "optimiz eng syst",
+                    "overallSum": 180.5
+                },
+                {
+                    "courses_title": "anly civl sys",
+                    "overallSum": 182
+                },
+                {
+                    "courses_title": "soil dynamics",
+                    "overallSum": 180.12
+                },
+                {
+                    "courses_title": "urbn engr m&m",
+                    "overallSum": 184
+                },
+                {
+                    "courses_title": "urbn trans systm",
+                    "overallSum": 184.6
+                },
+                {
+                    "courses_title": "basic intvw skls",
+                    "overallSum": 545.51
+                },
+                {
+                    "courses_title": "career counselng",
+                    "overallSum": 915.35
+                },
+                {
+                    "courses_title": "int thry counsel",
+                    "overallSum": 272.88
+                },
+                {
+                    "courses_title": "role tcher guid",
+                    "overallSum": 635.23
+                },
+                {
+                    "courses_title": "psnl soc dv adlt",
+                    "overallSum": 453.65
+                },
+                {
+                    "courses_title": "schl counselling",
+                    "overallSum": 380.68
+                },
+                {
+                    "courses_title": "counsl adolescnt",
+                    "overallSum": 738.18
+                },
+                {
+                    "courses_title": "counslng adults",
+                    "overallSum": 726.78
+                },
+                {
+                    "courses_title": "adlt psychpathlg",
+                    "overallSum": 557.26
+                },
+                {
+                    "courses_title": "family counsl ii",
+                    "overallSum": 1285.26
+                },
+                {
+                    "courses_title": "group counsling",
+                    "overallSum": 636.3
+                },
+                {
+                    "courses_title": "career planning",
+                    "overallSum": 1939.69
+                },
+                {
+                    "courses_title": "research in cnps",
+                    "overallSum": 181.34
+                },
+                {
+                    "courses_title": "prgm devl cnsl",
+                    "overallSum": 1588.57
+                },
+                {
+                    "courses_title": "",
+                    "overallSum": 5553.38
+                },
+                {
+                    "courses_title": "cross-cltr cnsl",
+                    "overallSum": 1289.2
+                },
+                {
+                    "courses_title": "compensation",
+                    "overallSum": 180.92
+                },
+                {
+                    "courses_title": "stats methlgy i",
+                    "overallSum": 752.52
+                },
+                {
+                    "courses_title": "intro to conserv",
+                    "overallSum": 360.98
+                },
+                {
+                    "courses_title": "aborignl forestr",
+                    "overallSum": 180.42
+                },
+                {
+                    "courses_title": "alg in bioin",
+                    "overallSum": 182.5
+                },
+                {
+                    "courses_title": "student seminar",
+                    "overallSum": 730.41
+                },
+                {
+                    "courses_title": "thry of automata",
+                    "overallSum": 740.36
+                },
+                {
+                    "courses_title": "computl ling 1",
+                    "overallSum": 189
+                },
+                {
+                    "courses_title": "software eng",
+                    "overallSum": 183.58
+                },
+                {
+                    "courses_title": "artif intell 2",
+                    "overallSum": 181.42
+                },
+                {
+                    "courses_title": "comp comm protcl",
+                    "overallSum": 362.66
+                },
+                {
+                    "courses_title": "machine learn i",
+                    "overallSum": 363.5
+                },
+                {
+                    "courses_title": "m.sc major essay",
+                    "overallSum": 190
+                },
+                {
+                    "courses_title": "prep writ career",
+                    "overallSum": 1304.84
+                },
+                {
+                    "courses_title": "thesis",
+                    "overallSum": 4235.41
+                },
+                {
+                    "courses_title": "endo micro-surg",
+                    "overallSum": 183
+                },
+                {
+                    "courses_title": "cr-fc grwth&dev",
+                    "overallSum": 188.66
+                },
+                {
+                    "courses_title": "stats methods",
+                    "overallSum": 183.64
+                },
+                {
+                    "courses_title": "rs mth&sem orbi",
+                    "overallSum": 367.06
+                },
+                {
+                    "courses_title": "or microbi&immun",
+                    "overallSum": 181.66
+                },
+                {
+                    "courses_title": "oral pathology",
+                    "overallSum": 180.84
+                },
+                {
+                    "courses_title": "implant therapy",
+                    "overallSum": 273.34
+                },
+                {
+                    "courses_title": "endo lit rev i",
+                    "overallSum": 180.5
+                },
+                {
+                    "courses_title": "endo lit rev ii",
+                    "overallSum": 363.5
+                },
+                {
+                    "courses_title": "clin endo yr 2",
+                    "overallSum": 181
+                },
+                {
+                    "courses_title": "curr iss oral hl",
+                    "overallSum": 183.69
+                },
+                {
+                    "courses_title": "dentalhyg prac i",
+                    "overallSum": 180.16
+                },
+                {
+                    "courses_title": "trends & topics",
+                    "overallSum": 277.93
+                },
+                {
+                    "courses_title": "lit review i",
+                    "overallSum": 273.12
+                },
+                {
+                    "courses_title": "lit review ii",
+                    "overallSum": 365.96
+                },
+                {
+                    "courses_title": "kinder curriclm",
+                    "overallSum": 187.44
+                },
+                {
+                    "courses_title": "home/schl/cmnty",
+                    "overallSum": 91.93
+                },
+                {
+                    "courses_title": "obsv&doc erly ch",
+                    "overallSum": 185.74
+                },
+                {
+                    "courses_title": "asmnt spec needs",
+                    "overallSum": 552.09
+                },
+                {
+                    "courses_title": "sup indg inftnts",
+                    "overallSum": 181.62
+                },
+                {
+                    "courses_title": "topcs macroecon",
+                    "overallSum": 182.16
+                },
+                {
+                    "courses_title": "econometrics",
+                    "overallSum": 181.36
+                },
+                {
+                    "courses_title": "honours seminar",
+                    "overallSum": 726.72
+                },
+                {
+                    "courses_title": "spc tpcs macroec",
+                    "overallSum": 924.08
+                },
+                {
+                    "courses_title": "behav economics",
+                    "overallSum": 186
+                },
+                {
+                    "courses_title": "problty & stat",
+                    "overallSum": 368.98
+                },
+                {
+                    "courses_title": "montry thry pol",
+                    "overallSum": 360.76
+                },
+                {
+                    "courses_title": "labour economics",
+                    "overallSum": 366.92
+                },
+                {
+                    "courses_title": "market structure",
+                    "overallSum": 366
+                },
+                {
+                    "courses_title": "soc & econ measu",
+                    "overallSum": 738.74
+                },
+                {
+                    "courses_title": "macroecon ii",
+                    "overallSum": 183.58
+                },
+                {
+                    "courses_title": "econ thry ii",
+                    "overallSum": 365.44
+                },
+                {
+                    "courses_title": "tpcs app econ i",
+                    "overallSum": 183.72
+                },
+                {
+                    "courses_title": "ph d resrch sem",
+                    "overallSum": 635.99
+                },
+                {
+                    "courses_title": "digtl med: intro",
+                    "overallSum": 180.48
+                },
+                {
+                    "courses_title": "math prblm slvng",
+                    "overallSum": 368.29
+                },
+                {
+                    "courses_title": "ds tec ii sc c&p",
+                    "overallSum": 551.94
+                },
+                {
+                    "courses_title": "mus&mov elem c&p",
+                    "overallSum": 182.96
+                },
+                {
+                    "courses_title": "ict educ ethics",
+                    "overallSum": 554.02
+                },
+                {
+                    "courses_title": "hmec ii sec c&p",
+                    "overallSum": 456.58
+                },
+                {
+                    "courses_title": "home ec: 2nd ii",
+                    "overallSum": 186.6
+                },
+                {
+                    "courses_title": "rev res curr&ped",
+                    "overallSum": 1099.45
+                },
+                {
+                    "courses_title": "vid eth ed res",
+                    "overallSum": 362.94
+                },
+                {
+                    "courses_title": "case res&analys",
+                    "overallSum": 92.45
+                },
+                {
+                    "courses_title": "mth ed: crnt iss",
+                    "overallSum": 181.12
+                },
+                {
+                    "courses_title": "mth e: bynd erly",
+                    "overallSum": 183
+                },
+                {
+                    "courses_title": "crit anly sci ed",
+                    "overallSum": 366.68
+                },
+                {
+                    "courses_title": "thry&rs soc cont",
+                    "overallSum": 186
+                },
+                {
+                    "courses_title": "res tch & lrn sc",
+                    "overallSum": 181.28
+                },
+                {
+                    "courses_title": "curric iss&thry",
+                    "overallSum": 2101.51
+                },
+                {
+                    "courses_title": "txt pol& id cdev",
+                    "overallSum": 556.92
+                },
+                {
+                    "courses_title": "curr hist contxt",
+                    "overallSum": 368.84
+                },
+                {
+                    "courses_title": "rsc trd edu admn",
+                    "overallSum": 368.89
+                },
+                {
+                    "courses_title": "trad adult edu",
+                    "overallSum": 180.12
+                },
+                {
+                    "courses_title": "fn & educ change",
+                    "overallSum": 1125.06
+                },
+                {
+                    "courses_title": "org&admin hi edu",
+                    "overallSum": 370.46
+                },
+                {
+                    "courses_title": "adu edu pro",
+                    "overallSum": 186.8
+                },
+                {
+                    "courses_title": "thy rea adu lea",
+                    "overallSum": 182
+                },
+                {
+                    "courses_title": "adlt edu pract",
+                    "overallSum": 375.64
+                },
+                {
+                    "courses_title": "fdns highr educ",
+                    "overallSum": 185.46
+                },
+                {
+                    "courses_title": "high ed pol",
+                    "overallSum": 181.74
+                },
+                {
+                    "courses_title": "ldrshp educ org",
+                    "overallSum": 725.77
+                },
+                {
+                    "courses_title": "sem sociol educ",
+                    "overallSum": 370
+                },
+                {
+                    "courses_title": "tpcs sociol educ",
+                    "overallSum": 733.54
+                },
+                {
+                    "courses_title": "qst, theor, mthd",
+                    "overallSum": 181.2
+                },
+                {
+                    "courses_title": "work & learning",
+                    "overallSum": 90.11
+                },
+                {
+                    "courses_title": "contxt ed policy",
+                    "overallSum": 184.4
+                },
+                {
+                    "courses_title": "ldr adm aim educ",
+                    "overallSum": 90.5
+                },
+                {
+                    "courses_title": "stdy educ organ",
+                    "overallSum": 544.8
+                },
+                {
+                    "courses_title": "env phil & educ",
+                    "overallSum": 185.66
+                },
+                {
+                    "courses_title": "educ theories",
+                    "overallSum": 368.92
+                },
+                {
+                    "courses_title": "res mthd in educ",
+                    "overallSum": 2860.47
+                },
+                {
+                    "courses_title": "adv microsys des",
+                    "overallSum": 181.76
+                },
+                {
+                    "courses_title": "adv comp archtct",
+                    "overallSum": 185.2
+                },
+                {
+                    "courses_title": "nanosc model&sim",
+                    "overallSum": 368.1
+                },
+                {
+                    "courses_title": "grn nanoelec dev",
+                    "overallSum": 363.4
+                },
+                {
+                    "courses_title": "multimedia sys",
+                    "overallSum": 379.5
+                },
+                {
+                    "courses_title": "dyn mdl elec",
+                    "overallSum": 361.7
+                },
+                {
+                    "courses_title": "power elec dsgn",
+                    "overallSum": 91.5
+                },
+                {
+                    "courses_title": "power syst dynam",
+                    "overallSum": 551.4
+                },
+                {
+                    "courses_title": "network analysis",
+                    "overallSum": 362.76
+                },
+                {
+                    "courses_title": "stat sig proc",
+                    "overallSum": 363.34
+                },
+                {
+                    "courses_title": "comm networks",
+                    "overallSum": 180.66
+                },
+                {
+                    "courses_title": "self-tuning ctrl",
+                    "overallSum": 546.92
+                },
+                {
+                    "courses_title": "semicon thy appl",
+                    "overallSum": 368
+                },
+                {
+                    "courses_title": "ad top vlsi desg",
+                    "overallSum": 185
+                },
+                {
+                    "courses_title": "cad algrthm i cr",
+                    "overallSum": 744.04
+                },
+                {
+                    "courses_title": "arch learn systs",
+                    "overallSum": 725.68
+                },
+                {
+                    "courses_title": "eng report",
+                    "overallSum": 273.47
+                },
+                {
+                    "courses_title": "electronics lab",
+                    "overallSum": 281.72
+                },
+                {
+                    "courses_title": "tpcs biomed eng",
+                    "overallSum": 183.66
+                },
+                {
+                    "courses_title": "lab expl earth",
+                    "overallSum": 271.33
+                },
+                {
+                    "courses_title": "dta anl at,er&oc",
+                    "overallSum": 180.48
+                },
+                {
+                    "courses_title": "num tec oc,at&er",
+                    "overallSum": 180.66
+                },
+                {
+                    "courses_title": "adv geo fld dyn",
+                    "overallSum": 180.4
+                },
+                {
+                    "courses_title": "wavelets",
+                    "overallSum": 362.5
+                },
+                {
+                    "courses_title": "adv mineralogy",
+                    "overallSum": 181.34
+                },
+                {
+                    "courses_title": "mth&mdl ptrl&gch",
+                    "overallSum": 185.5
+                },
+                {
+                    "courses_title": "mech nat defrmtn",
+                    "overallSum": 180.4
+                },
+                {
+                    "courses_title": "adv geotechnics",
+                    "overallSum": 186.94
+                },
+                {
+                    "courses_title": "expl methodology",
+                    "overallSum": 906.86
+                },
+                {
+                    "courses_title": "adv rock engnrng",
+                    "overallSum": 180.66
+                },
+                {
+                    "courses_title": "adv volcanology",
+                    "overallSum": 182
+                },
+                {
+                    "courses_title": "solid earth sci",
+                    "overallSum": 185
+                },
+                {
+                    "courses_title": "adv field earth",
+                    "overallSum": 182
+                },
+                {
+                    "courses_title": "mech erth quake",
+                    "overallSum": 364.5
+                },
+                {
+                    "courses_title": "m.eng. grad papr",
+                    "overallSum": 91
+                },
+                {
+                    "courses_title": "tch'g hghly able",
+                    "overallSum": 1667.12
+                },
+                {
+                    "courses_title": "intro excp child",
+                    "overallSum": 1502.12
+                },
+                {
+                    "courses_title": "lrn'g disablties",
+                    "overallSum": 1290.61
+                },
+                {
+                    "courses_title": "incl bl vis-imp",
+                    "overallSum": 558.61
+                },
+                {
+                    "courses_title": "tchg st visl imp",
+                    "overallSum": 190.54
+                },
+                {
+                    "courses_title": "ed st dvl ds inc",
+                    "overallSum": 642.5
+                },
+                {
+                    "courses_title": "typ atyp inf/ch",
+                    "overallSum": 2389.2
+                },
+                {
+                    "courses_title": "ed prg hghly abl",
+                    "overallSum": 1387.02
+                },
+                {
+                    "courses_title": "augmt&alt comm",
+                    "overallSum": 464.75
+                },
+                {
+                    "courses_title": "tech for vis imp",
+                    "overallSum": 191.34
+                },
+                {
+                    "courses_title": "assess lrn diffi",
+                    "overallSum": 1874.91
+                },
+                {
+                    "courses_title": "prg child sp lrn",
+                    "overallSum": 738.53
+                },
+                {
+                    "courses_title": "classroom mgmt",
+                    "overallSum": 2136.09
+                },
+                {
+                    "courses_title": "surv bhvr dis ch",
+                    "overallSum": 2786.04
+                },
+                {
+                    "courses_title": "intrv ch&ad bh d",
+                    "overallSum": 925.4
+                },
+                {
+                    "courses_title": "educ stds autism",
+                    "overallSum": 2346.08
+                },
+                {
+                    "courses_title": "intro rsrch educ",
+                    "overallSum": 180.64
+                },
+                {
+                    "courses_title": "intr stat rs edu",
+                    "overallSum": 1098.63
+                },
+                {
+                    "courses_title": "hn dev, lrn, cul",
+                    "overallSum": 1100.85
+                },
+                {
+                    "courses_title": "cog lang proc ed",
+                    "overallSum": 550.9
+                },
+                {
+                    "courses_title": "hn dev: inf-adlt",
+                    "overallSum": 737.11
+                },
+                {
+                    "courses_title": "ch&ad psyco-path",
+                    "overallSum": 908
+                },
+                {
+                    "courses_title": "crit spec ed",
+                    "overallSum": 2698.24
+                },
+                {
+                    "courses_title": "able&creatv lrnr",
+                    "overallSum": 661.63
+                },
+                {
+                    "courses_title": "dev el sk df&hrd",
+                    "overallSum": 196.9
+                },
+                {
+                    "courses_title": "cur dev e df&hrd",
+                    "overallSum": 749.38
+                },
+                {
+                    "courses_title": "std in sign lang",
+                    "overallSum": 372.1
+                },
+                {
+                    "courses_title": "specific lrn dis",
+                    "overallSum": 1762.57
+                },
+                {
+                    "courses_title": "basic princ meas",
+                    "overallSum": 1851.41
+                },
+                {
+                    "courses_title": "dev scale&measur",
+                    "overallSum": 371.36
+                },
+                {
+                    "courses_title": "test constructio",
+                    "overallSum": 180.66
+                },
+                {
+                    "courses_title": "curric as&interv",
+                    "overallSum": 1381.97
+                },
+                {
+                    "courses_title": "acad assess schl",
+                    "overallSum": 1314.94
+                },
+                {
+                    "courses_title": "socl&emtl assess",
+                    "overallSum": 1385.52
+                },
+                {
+                    "courses_title": "ind skl vis imp",
+                    "overallSum": 556.68
+                },
+                {
+                    "courses_title": "sem in autism",
+                    "overallSum": 372.05
+                },
+                {
+                    "courses_title": "prof,eth&lgl iss",
+                    "overallSum": 740.86
+                },
+                {
+                    "courses_title": "thy cognt assess",
+                    "overallSum": 1764.76
+                },
+                {
+                    "courses_title": "dev neuropsych",
+                    "overallSum": 566.02
+                },
+                {
+                    "courses_title": "soc-psych fndtns",
+                    "overallSum": 554.72
+                },
+                {
+                    "courses_title": "prin behav anlys",
+                    "overallSum": 468.78
+                },
+                {
+                    "courses_title": "inst mthd chalng",
+                    "overallSum": 183
+                },
+                {
+                    "courses_title": "motivation educ",
+                    "overallSum": 730.42
+                },
+                {
+                    "courses_title": "discourse & talk",
+                    "overallSum": 552.4
+                },
+                {
+                    "courses_title": "thry&prc prg evl",
+                    "overallSum": 185.26
+                },
+                {
+                    "courses_title": "exp des anl ed",
+                    "overallSum": 2522.9
+                },
+                {
+                    "courses_title": "dsgn&anl smp&sub",
+                    "overallSum": 187.18
+                },
+                {
+                    "courses_title": "mt-anl qnt rs sy",
+                    "overallSum": 377.2
+                },
+                {
+                    "courses_title": "qlt rsrch mthd",
+                    "overallSum": 363.65
+                },
+                {
+                    "courses_title": "qlt mthd ed psy",
+                    "overallSum": 363.01
+                },
+                {
+                    "courses_title": "cor des ed res",
+                    "overallSum": 1869.01
+                },
+                {
+                    "courses_title": "coll&uni teachng",
+                    "overallSum": 1496.89
+                },
+                {
+                    "courses_title": "mult des anal rs",
+                    "overallSum": 745.52
+                },
+                {
+                    "courses_title": "hier lin modelng",
+                    "overallSum": 748.14
+                },
+                {
+                    "courses_title": "item respns thry",
+                    "overallSum": 366.94
+                },
+                {
+                    "courses_title": "res meth educ",
+                    "overallSum": 1828.79
+                },
+                {
+                    "courses_title": "des tech",
+                    "overallSum": 2566.43
+                },
+                {
+                    "courses_title": "found ed tech",
+                    "overallSum": 1919.16
+                },
+                {
+                    "courses_title": "appl lear theor",
+                    "overallSum": 999.94
+                },
+                {
+                    "courses_title": "indig, tech&ed",
+                    "overallSum": 1401.91
+                },
+                {
+                    "courses_title": "constr strat",
+                    "overallSum": 1741
+                },
+                {
+                    "courses_title": "curric issu",
+                    "overallSum": 2220.96
+                },
+                {
+                    "courses_title": "tech arts hum",
+                    "overallSum": 1288.24
+                },
+                {
+                    "courses_title": "tech math sci",
+                    "overallSum": 753.68
+                },
+                {
+                    "courses_title": "text tech",
+                    "overallSum": 633.93
+                },
+                {
+                    "courses_title": "mo pict prod i",
+                    "overallSum": 192.8
+                },
+                {
+                    "courses_title": "fisheries mngmt",
+                    "overallSum": 188
+                },
+                {
+                    "courses_title": "quant an fish i",
+                    "overallSum": 542.92
+                },
+                {
+                    "courses_title": "fsh econ & mgmnt",
+                    "overallSum": 182.28
+                },
+                {
+                    "courses_title": "bayesn dcsn anl",
+                    "overallSum": 182
+                },
+                {
+                    "courses_title": "food theor app",
+                    "overallSum": 1098.67
+                },
+                {
+                    "courses_title": "int nut fld stdy",
+                    "overallSum": 181.5
+                },
+                {
+                    "courses_title": "top food nu hea",
+                    "overallSum": 91.36
+                },
+                {
+                    "courses_title": "hazard anal food",
+                    "overallSum": 181.36
+                },
+                {
+                    "courses_title": "forest oper's i",
+                    "overallSum": 91
+                },
+                {
+                    "courses_title": "econ, cont, fina",
+                    "overallSum": 180.88
+                },
+                {
+                    "courses_title": "int field school",
+                    "overallSum": 363.54
+                },
+                {
+                    "courses_title": "complex adapt sy",
+                    "overallSum": 180.26
+                },
+                {
+                    "courses_title": "ecol plnt bioch",
+                    "overallSum": 186
+                },
+                {
+                    "courses_title": "ind peo frst lnd",
+                    "overallSum": 184.44
+                },
+                {
+                    "courses_title": "natural res econ",
+                    "overallSum": 180.36
+                },
+                {
+                    "courses_title": "tech comm skills",
+                    "overallSum": 455.33
+                },
+                {
+                    "courses_title": "tec comm skls ii",
+                    "overallSum": 186
+                },
+                {
+                    "courses_title": "frst busn enterp",
+                    "overallSum": 184.54
+                },
+                {
+                    "courses_title": "ds intl forstry",
+                    "overallSum": 192.72
+                },
+                {
+                    "courses_title": "stat mth hydrlgy",
+                    "overallSum": 182.34
+                },
+                {
+                    "courses_title": "cultural studies",
+                    "overallSum": 184.5
+                },
+                {
+                    "courses_title": "tops public plcy",
+                    "overallSum": 186.08
+                },
+                {
+                    "courses_title": "adv gsat concept",
+                    "overallSum": 180.58
+                },
+                {
+                    "courses_title": "h gwaii cse stdy",
+                    "overallSum": 180.66
+                },
+                {
+                    "courses_title": "frst ntns rsorcs",
+                    "overallSum": 189
+                },
+                {
+                    "courses_title": "coast terr esyst",
+                    "overallSum": 180.96
+                },
+                {
+                    "courses_title": "islnd wild mgmt",
+                    "overallSum": 752.24
+                },
+                {
+                    "courses_title": "eco-based mgmt",
+                    "overallSum": 366.72
+                },
+                {
+                    "courses_title": "intr hindi-urdu",
+                    "overallSum": 277.44
+                },
+                {
+                    "courses_title": "masters thesis",
+                    "overallSum": 1748.12
+                },
+                {
+                    "courses_title": "cur iss ntr&dis",
+                    "overallSum": 182.66
+                },
+                {
+                    "courses_title": "size of things",
+                    "overallSum": 180.88
+                },
+                {
+                    "courses_title": "dante's div com",
+                    "overallSum": 183
+                },
+                {
+                    "courses_title": "ital lit cult",
+                    "overallSum": 371.5
+                },
+                {
+                    "courses_title": "mvmt exp yg chld",
+                    "overallSum": 182.14
+                },
+                {
+                    "courses_title": "leis & disbl prs",
+                    "overallSum": 183.4
+                },
+                {
+                    "courses_title": "exer physolgy ii",
+                    "overallSum": 90.19
+                },
+                {
+                    "courses_title": "pln pe,sp&ex prg",
+                    "overallSum": 367.82
+                },
+                {
+                    "courses_title": "prev spts inj i",
+                    "overallSum": 375.78
+                },
+                {
+                    "courses_title": "chrn hlth iss",
+                    "overallSum": 181.36
+                },
+                {
+                    "courses_title": "prev spts inj ii",
+                    "overallSum": 544.18
+                },
+                {
+                    "courses_title": "kin project",
+                    "overallSum": 1293.16
+                },
+                {
+                    "courses_title": "spec tpcs kin",
+                    "overallSum": 555.34
+                },
+                {
+                    "courses_title": "bioenrgtc ph act",
+                    "overallSum": 365.48
+                },
+                {
+                    "courses_title": "py-sc asp ph act",
+                    "overallSum": 184
+                },
+                {
+                    "courses_title": "phyl asp phy act",
+                    "overallSum": 760.54
+                },
+                {
+                    "courses_title": "sem hum mtr perf",
+                    "overallSum": 367.5
+                },
+                {
+                    "courses_title": "res mthds kin",
+                    "overallSum": 180.58
+                },
+                {
+                    "courses_title": "coaching effctv",
+                    "overallSum": 94.92
+                },
+                {
+                    "courses_title": "graduating paper",
+                    "overallSum": 454.5
+                },
+                {
+                    "courses_title": "dir fld st sp&ph",
+                    "overallSum": 181.76
+                },
+                {
+                    "courses_title": "landsc plan&mgmt",
+                    "overallSum": 184.14
+                },
+                {
+                    "courses_title": "prof prct larc",
+                    "overallSum": 185.6
+                },
+                {
+                    "courses_title": "dig comm&tpcs ag",
+                    "overallSum": 181.66
+                },
+                {
+                    "courses_title": "select libr res",
+                    "overallSum": 182.52
+                },
+                {
+                    "courses_title": "org lrn res",
+                    "overallSum": 180.58
+                },
+                {
+                    "courses_title": "info services i",
+                    "overallSum": 362.89
+                },
+                {
+                    "courses_title": "serv for chld",
+                    "overallSum": 183.26
+                },
+                {
+                    "courses_title": "database design",
+                    "overallSum": 182.46
+                },
+                {
+                    "courses_title": "acad libraries",
+                    "overallSum": 192.2
+                },
+                {
+                    "courses_title": "dgtl libraries",
+                    "overallSum": 182.48
+                },
+                {
+                    "courses_title": "dgtl img & text",
+                    "overallSum": 364.7
+                },
+                {
+                    "courses_title": "sem theor",
+                    "overallSum": 184.5
+                },
+                {
+                    "courses_title": "intr tch ch lit",
+                    "overallSum": 90.67
+                },
+                {
+                    "courses_title": "t & l kind & prm",
+                    "overallSum": 181.5
+                },
+                {
+                    "courses_title": "sch lrc prog",
+                    "overallSum": 366.1
+                },
+                {
+                    "courses_title": "resource-bsd tch",
+                    "overallSum": 364.3
+                },
+                {
+                    "courses_title": "2nd lang assess: c&e app",
+                    "overallSum": 182.4
+                },
+                {
+                    "courses_title": "thr lng&lit rsrc",
+                    "overallSum": 367
+                },
+                {
+                    "courses_title": "doctoral seminar",
+                    "overallSum": 90.1
+                },
+                {
+                    "courses_title": "crt anly iss&mth",
+                    "overallSum": 180.66
+                },
+                {
+                    "courses_title": "mltvar&vctr calc",
+                    "overallSum": 180.5
+                },
+                {
+                    "courses_title": "ord diff equtns",
+                    "overallSum": 91.1
+                },
+                {
+                    "courses_title": "real analysis i",
+                    "overallSum": 181.14
+                },
+                {
+                    "courses_title": "real analysis ii",
+                    "overallSum": 182.76
+                },
+                {
+                    "courses_title": "intr mod diff ge",
+                    "overallSum": 363.24
+                },
+                {
+                    "courses_title": "complex analysis",
+                    "overallSum": 180.86
+                },
+                {
+                    "courses_title": "algebra i",
+                    "overallSum": 368.8
+                },
+                {
+                    "courses_title": "algebra ii",
+                    "overallSum": 566.62
+                },
+                {
+                    "courses_title": "discrete math",
+                    "overallSum": 550.8
+                },
+                {
+                    "courses_title": "meas thry&integr",
+                    "overallSum": 185.26
+                },
+                {
+                    "courses_title": "complex analy i",
+                    "overallSum": 184.8
+                },
+                {
+                    "courses_title": "complex analy",
+                    "overallSum": 556.16
+                },
+                {
+                    "courses_title": "functional analy",
+                    "overallSum": 745.34
+                },
+                {
+                    "courses_title": "ptl dif eqn flud",
+                    "overallSum": 365
+                },
+                {
+                    "courses_title": "prt diff equa i",
+                    "overallSum": 1116.28
+                },
+                {
+                    "courses_title": "num anly prtl df",
+                    "overallSum": 183.12
+                },
+                {
+                    "courses_title": "combinatorial op",
+                    "overallSum": 371.56
+                },
+                {
+                    "courses_title": "diff geometry i",
+                    "overallSum": 1116.6
+                },
+                {
+                    "courses_title": "algb topology i",
+                    "overallSum": 571.24
+                },
+                {
+                    "courses_title": "algb geometry i",
+                    "overallSum": 384.96
+                },
+                {
+                    "courses_title": "lie theory i",
+                    "overallSum": 556.86
+                },
+                {
+                    "courses_title": "elem number thry",
+                    "overallSum": 183.5
+                },
+                {
+                    "courses_title": "analyt num thry",
+                    "overallSum": 547.76
+                },
+                {
+                    "courses_title": "harmonic anal i",
+                    "overallSum": 567.96
+                },
+                {
+                    "courses_title": "probability i",
+                    "overallSum": 923.94
+                },
+                {
+                    "courses_title": "probability ii",
+                    "overallSum": 932.04
+                },
+                {
+                    "courses_title": "cnt tme stchastc",
+                    "overallSum": 367.62
+                },
+                {
+                    "courses_title": "mthds asymp anal",
+                    "overallSum": 366.48
+                },
+                {
+                    "courses_title": "pertrb diff equa",
+                    "overallSum": 545.74
+                },
+                {
+                    "courses_title": "intr dyn systems",
+                    "overallSum": 188.66
+                },
+                {
+                    "courses_title": "complex fluids",
+                    "overallSum": 180.48
+                },
+                {
+                    "courses_title": "msc major essay",
+                    "overallSum": 1108.76
+                },
+                {
+                    "courses_title": "linear vibrtns",
+                    "overallSum": 187
+                },
+                {
+                    "courses_title": "modl dynam systm",
+                    "overallSum": 367.5
+                },
+                {
+                    "courses_title": "fdmt inj biomech",
+                    "overallSum": 184.86
+                },
+                {
+                    "courses_title": "fuel cell system",
+                    "overallSum": 180.34
+                },
+                {
+                    "courses_title": "microelectromech",
+                    "overallSum": 364.04
+                },
+                {
+                    "courses_title": "adv eng acoustcs",
+                    "overallSum": 365
+                },
+                {
+                    "courses_title": "mch tool str&vib",
+                    "overallSum": 370
+                },
+                {
+                    "courses_title": "proj mec studies",
+                    "overallSum": 184
+                },
+                {
+                    "courses_title": "research seminar",
+                    "overallSum": 271.63
+                },
+                {
+                    "courses_title": "seminar",
+                    "overallSum": 3567.81
+                },
+                {
+                    "courses_title": "genome analysis",
+                    "overallSum": 1276.24
+                },
+                {
+                    "courses_title": "adv hum mole gen",
+                    "overallSum": 364.58
+                },
+                {
+                    "courses_title": "biolgy of cancer",
+                    "overallSum": 363.04
+                },
+                {
+                    "courses_title": "adv human gene",
+                    "overallSum": 369.6
+                },
+                {
+                    "courses_title": "genetics& ethics",
+                    "overallSum": 184.28
+                },
+                {
+                    "courses_title": "mole & cell biol",
+                    "overallSum": 181.36
+                },
+                {
+                    "courses_title": "exptl med method",
+                    "overallSum": 921.74
+                },
+                {
+                    "courses_title": "m.sc. thesis",
+                    "overallSum": 276.1
+                },
+                {
+                    "courses_title": "pulmonry pthphyl",
+                    "overallSum": 554.08
+                },
+                {
+                    "courses_title": "cardiovas path",
+                    "overallSum": 181.5
+                },
+                {
+                    "courses_title": "viral infec humn",
+                    "overallSum": 180.78
+                },
+                {
+                    "courses_title": "expermntl micb",
+                    "overallSum": 183.58
+                },
+                {
+                    "courses_title": "micb eco genomic",
+                    "overallSum": 184.24
+                },
+                {
+                    "courses_title": "research problem",
+                    "overallSum": 555.4
+                },
+                {
+                    "courses_title": "adv immunogeneti",
+                    "overallSum": 734.92
+                },
+                {
+                    "courses_title": "cnsl mat cr prov",
+                    "overallSum": 934.28
+                },
+                {
+                    "courses_title": "appl hlth serv",
+                    "overallSum": 554.86
+                },
+                {
+                    "courses_title": "crit apprais lit",
+                    "overallSum": 187.5
+                },
+                {
+                    "courses_title": "ethics mtrnycare",
+                    "overallSum": 547.2
+                },
+                {
+                    "courses_title": "clinical skills",
+                    "overallSum": 183.58
+                },
+                {
+                    "courses_title": "clinical clerkship",
+                    "overallSum": 184.58
+                },
+                {
+                    "courses_title": "cave mn sys: d&p",
+                    "overallSum": 183.12
+                },
+                {
+                    "courses_title": "mgmt sc meth",
+                    "overallSum": 748.87
+                },
+                {
+                    "courses_title": "min eco fin",
+                    "overallSum": 181.04
+                },
+                {
+                    "courses_title": "min & soc",
+                    "overallSum": 181.38
+                },
+                {
+                    "courses_title": "mtrl manufact",
+                    "overallSum": 185.78
+                },
+                {
+                    "courses_title": "fin el heat tran",
+                    "overallSum": 181.66
+                },
+                {
+                    "courses_title": "hydrmtllgcl rctr",
+                    "overallSum": 382.5
+                },
+                {
+                    "courses_title": "adv compsit mtrl",
+                    "overallSum": 180.28
+                },
+                {
+                    "courses_title": "intro musc thry",
+                    "overallSum": 187.25
+                },
+                {
+                    "courses_title": "contem players",
+                    "overallSum": 372.82
+                },
+                {
+                    "courses_title": "jazz ensemble",
+                    "overallSum": 90.19
+                },
+                {
+                    "courses_title": "clbrtv piano ii",
+                    "overallSum": 545.7
+                },
+                {
+                    "courses_title": "rdngs orch rep",
+                    "overallSum": 185.26
+                },
+                {
+                    "courses_title": "hist poplr music",
+                    "overallSum": 186.9
+                },
+                {
+                    "courses_title": "vocal techniques",
+                    "overallSum": 185.34
+                },
+                {
+                    "courses_title": "orch repertoire",
+                    "overallSum": 746.65
+                },
+                {
+                    "courses_title": "art song int prf",
+                    "overallSum": 180.16
+                },
+                {
+                    "courses_title": "ubc singers",
+                    "overallSum": 1132
+                },
+                {
+                    "courses_title": "ubc chamb string",
+                    "overallSum": 193
+                },
+                {
+                    "courses_title": "contemp players",
+                    "overallSum": 734.06
+                },
+                {
+                    "courses_title": "shpbld proj mgmt",
+                    "overallSum": 364.64
+                },
+                {
+                    "courses_title": "ldrshp, ethics",
+                    "overallSum": 188.3
+                },
+                {
+                    "courses_title": "commnty & popltn",
+                    "overallSum": 91
+                },
+                {
+                    "courses_title": "rl div hlth expr",
+                    "overallSum": 367.9
+                },
+                {
+                    "courses_title": "practice praxis",
+                    "overallSum": 183.66
+                },
+                {
+                    "courses_title": "ldrshp ethcs pol",
+                    "overallSum": 558.82
+                },
+                {
+                    "courses_title": "chldren&families",
+                    "overallSum": 188
+                },
+                {
+                    "courses_title": "mntl hlth concrn",
+                    "overallSum": 190
+                },
+                {
+                    "courses_title": "rsrch evidence",
+                    "overallSum": 90.65
+                },
+                {
+                    "courses_title": "stat lit nursing",
+                    "overallSum": 180.12
+                },
+                {
+                    "courses_title": "hlth promo prac",
+                    "overallSum": 182.94
+                },
+                {
+                    "courses_title": "pharcgy prm care",
+                    "overallSum": 363.52
+                },
+                {
+                    "courses_title": "cl pro prim care",
+                    "overallSum": 1331.64
+                },
+                {
+                    "courses_title": "adv hlth assess",
+                    "overallSum": 1475.44
+                },
+                {
+                    "courses_title": "admn ldrshp nurs",
+                    "overallSum": 368.48
+                },
+                {
+                    "courses_title": "educ prc nurs",
+                    "overallSum": 90.63
+                },
+                {
+                    "courses_title": "adv quant design",
+                    "overallSum": 182
+                },
+                {
+                    "courses_title": "primary care ii",
+                    "overallSum": 362.46
+                },
+                {
+                    "courses_title": "primary care iii",
+                    "overallSum": 913.06
+                },
+                {
+                    "courses_title": "fam nrs pract",
+                    "overallSum": 1151.92
+                },
+                {
+                    "courses_title": "eth&profl issues",
+                    "overallSum": 1697.34
+                },
+                {
+                    "courses_title": "msn major essay",
+                    "overallSum": 94
+                },
+                {
+                    "courses_title": "sch adv rsrch pr",
+                    "overallSum": 91
+                },
+                {
+                    "courses_title": "sem reprd biol",
+                    "overallSum": 180.66
+                },
+                {
+                    "courses_title": "perinatal epidem",
+                    "overallSum": 186
+                },
+                {
+                    "courses_title": "msc thesis",
+                    "overallSum": 371.75
+                },
+                {
+                    "courses_title": "concepts in onco",
+                    "overallSum": 1099.2
+                },
+                {
+                    "courses_title": "med lab toxiclgy",
+                    "overallSum": 180.5
+                },
+                {
+                    "courses_title": "tpcs path rsrch",
+                    "overallSum": 368.74
+                },
+                {
+                    "courses_title": "tech mlc biol&ex",
+                    "overallSum": 727.92
+                },
+                {
+                    "courses_title": "intro to pcol",
+                    "overallSum": 181.86
+                },
+                {
+                    "courses_title": "systmtc pcol lab",
+                    "overallSum": 546.94
+                },
+                {
+                    "courses_title": "drugs &intercell",
+                    "overallSum": 180.5
+                },
+                {
+                    "courses_title": "design & bioassy",
+                    "overallSum": 543.38
+                },
+                {
+                    "courses_title": "pcol anaesthesia",
+                    "overallSum": 548.92
+                },
+                {
+                    "courses_title": "ms thesis",
+                    "overallSum": 647.5
+                },
+                {
+                    "courses_title": "pharmacokinetics",
+                    "overallSum": 180.52
+                },
+                {
+                    "courses_title": "biophys pharm i",
+                    "overallSum": 180.9
+                },
+                {
+                    "courses_title": "pharm mgmt",
+                    "overallSum": 363.33
+                },
+                {
+                    "courses_title": "admn of injectns",
+                    "overallSum": 746.79
+                },
+                {
+                    "courses_title": "drug safety",
+                    "overallSum": 910.62
+                },
+                {
+                    "courses_title": "clin pharcknetcs",
+                    "overallSum": 547.36
+                },
+                {
+                    "courses_title": "pain res & thera",
+                    "overallSum": 182.4
+                },
+                {
+                    "courses_title": "phar care aborig",
+                    "overallSum": 637.89
+                },
+                {
+                    "courses_title": "cs phar sci iv",
+                    "overallSum": 271.59
+                },
+                {
+                    "courses_title": "adv conc pharmac",
+                    "overallSum": 1088.54
+                },
+                {
+                    "courses_title": "diag img & rdoph",
+                    "overallSum": 180.86
+                },
+                {
+                    "courses_title": "log & crit think",
+                    "overallSum": 187.5
+                },
+                {
+                    "courses_title": "directed reading",
+                    "overallSum": 362.66
+                },
+                {
+                    "courses_title": "phrm in practc 1",
+                    "overallSum": 188.46
+                },
+                {
+                    "courses_title": "tech in hlthcare",
+                    "overallSum": 184.12
+                },
+                {
+                    "courses_title": "clinical dec i",
+                    "overallSum": 726.52
+                },
+                {
+                    "courses_title": "clinical dec ii",
+                    "overallSum": 184.08
+                },
+                {
+                    "courses_title": "case integr i",
+                    "overallSum": 181.22
+                },
+                {
+                    "courses_title": "clin make iv",
+                    "overallSum": 379.38
+                },
+                {
+                    "courses_title": "intro exper phys",
+                    "overallSum": 90.25
+                },
+                {
+                    "courses_title": "quantum mech ii",
+                    "overallSum": 186.62
+                },
+                {
+                    "courses_title": "cond matter ii",
+                    "overallSum": 366
+                },
+                {
+                    "courses_title": "relativty & elec",
+                    "overallSum": 183.5
+                },
+                {
+                    "courses_title": "elm prticle phys",
+                    "overallSum": 182.5
+                },
+                {
+                    "courses_title": "quant fld theory",
+                    "overallSum": 1111.82
+                },
+                {
+                    "courses_title": "quantum elctrdyn",
+                    "overallSum": 183.7
+                },
+                {
+                    "courses_title": "rdiothrpy phy ii",
+                    "overallSum": 181.4
+                },
+                {
+                    "courses_title": "adv rad biophys",
+                    "overallSum": 369.66
+                },
+                {
+                    "courses_title": "rdtn dosimetry",
+                    "overallSum": 181.66
+                },
+                {
+                    "courses_title": "anat phys stats",
+                    "overallSum": 909.54
+                },
+                {
+                    "courses_title": "urb dsgn thr&met",
+                    "overallSum": 730.9
+                },
+                {
+                    "courses_title": "sem r prpty dv&p",
+                    "overallSum": 1651.84
+                },
+                {
+                    "courses_title": "urban transport",
+                    "overallSum": 180.16
+                },
+                {
+                    "courses_title": "urbn restructing",
+                    "overallSum": 362.14
+                },
+                {
+                    "courses_title": "nat resrce mngmt",
+                    "overallSum": 938.98
+                },
+                {
+                    "courses_title": "honours essay",
+                    "overallSum": 361.2
+                },
+                {
+                    "courses_title": "health psych",
+                    "overallSum": 941.4
+                },
+                {
+                    "courses_title": "teaching of psyc",
+                    "overallSum": 90.44
+                },
+                {
+                    "courses_title": "assm intrv techn",
+                    "overallSum": 364.16
+                },
+                {
+                    "courses_title": "behav assessment",
+                    "overallSum": 183
+                },
+                {
+                    "courses_title": "eth & prof clin",
+                    "overallSum": 934.92
+                },
+                {
+                    "courses_title": "intro psychthrpy",
+                    "overallSum": 924.04
+                },
+                {
+                    "courses_title": "cog/beh interven",
+                    "overallSum": 365.66
+                },
+                {
+                    "courses_title": "clinical res des",
+                    "overallSum": 183.2
+                },
+                {
+                    "courses_title": "adv conc rehb rs",
+                    "overallSum": 182.88
+                },
+                {
+                    "courses_title": "eval src evidenc",
+                    "overallSum": 186.4
+                },
+                {
+                    "courses_title": "rehab theory",
+                    "overallSum": 181.34
+                },
+                {
+                    "courses_title": "reas & dec-mking",
+                    "overallSum": 182.54
+                },
+                {
+                    "courses_title": "meas in practice",
+                    "overallSum": 182.5
+                },
+                {
+                    "courses_title": "assess plan eval",
+                    "overallSum": 181.86
+                },
+                {
+                    "courses_title": "rehab learning",
+                    "overallSum": 368.84
+                },
+                {
+                    "courses_title": "major proj prt 1",
+                    "overallSum": 364
+                },
+                {
+                    "courses_title": "soci environ",
+                    "overallSum": 364.18
+                },
+                {
+                    "courses_title": "basic russian ii",
+                    "overallSum": 180.67
+                },
+                {
+                    "courses_title": "third-year russ",
+                    "overallSum": 184.6
+                },
+                {
+                    "courses_title": "intro sanskrit",
+                    "overallSum": 185
+                },
+                {
+                    "courses_title": "intermd sanskrit",
+                    "overallSum": 180.58
+                },
+                {
+                    "courses_title": "land water semnr",
+                    "overallSum": 181.42
+                },
+                {
+                    "courses_title": "prof comms strat",
+                    "overallSum": 182.86
+                },
+                {
+                    "courses_title": "int sem in sw th",
+                    "overallSum": 183.1
+                },
+                {
+                    "courses_title": "can soci plcy",
+                    "overallSum": 543.81
+                },
+                {
+                    "courses_title": "sowk practice ii",
+                    "overallSum": 91.82
+                },
+                {
+                    "courses_title": "adv int sem in sw th",
+                    "overallSum": 90.13
+                },
+                {
+                    "courses_title": "first nat soc is",
+                    "overallSum": 90.62
+                },
+                {
+                    "courses_title": "health care team",
+                    "overallSum": 180.18
+                },
+                {
+                    "courses_title": "adv can soc plcy",
+                    "overallSum": 181.78
+                },
+                {
+                    "courses_title": "social analysis",
+                    "overallSum": 384.16
+                },
+                {
+                    "courses_title": "fst ntns soc iss",
+                    "overallSum": 367.2
+                },
+                {
+                    "courses_title": "pr mental health",
+                    "overallSum": 645.4
+                },
+                {
+                    "courses_title": "soc wrk & justce",
+                    "overallSum": 363.2
+                },
+                {
+                    "courses_title": "hlth & soc care",
+                    "overallSum": 186.83
+                },
+                {
+                    "courses_title": "adv int seminar",
+                    "overallSum": 549.89
+                },
+                {
+                    "courses_title": "directed study",
+                    "overallSum": 460.8
+                },
+                {
+                    "courses_title": "advancd span iii",
+                    "overallSum": 369.7
+                },
+                {
+                    "courses_title": "sociocult determ",
+                    "overallSum": 286.61
+                },
+                {
+                    "courses_title": "work int health",
+                    "overallSum": 197.96
+                },
+                {
+                    "courses_title": "imprv pblic hlth",
+                    "overallSum": 184.16
+                },
+                {
+                    "courses_title": "an meth epid res",
+                    "overallSum": 461.28
+                },
+                {
+                    "courses_title": "meas health care",
+                    "overallSum": 369.66
+                },
+                {
+                    "courses_title": "survlnc&monitrng",
+                    "overallSum": 379.02
+                },
+                {
+                    "courses_title": "syst rev hlth rs",
+                    "overallSum": 187.46
+                },
+                {
+                    "courses_title": "rsch surgical pr",
+                    "overallSum": 185.66
+                },
+                {
+                    "courses_title": "math mdl com dis",
+                    "overallSum": 563.76
+                },
+                {
+                    "courses_title": "qual mth res des",
+                    "overallSum": 185.56
+                },
+                {
+                    "courses_title": "cntrl com dis",
+                    "overallSum": 180.58
+                },
+                {
+                    "courses_title": "hlth & human sec",
+                    "overallSum": 181.14
+                },
+                {
+                    "courses_title": "biol p hlth prac",
+                    "overallSum": 453.02
+                },
+                {
+                    "courses_title": "iss public hlth",
+                    "overallSum": 271.77
+                },
+                {
+                    "courses_title": "ldrship pub hlth",
+                    "overallSum": 272.43
+                },
+                {
+                    "courses_title": "soc detrmin hlth",
+                    "overallSum": 362.24
+                },
+                {
+                    "courses_title": "hltcr systm anyl",
+                    "overallSum": 180.76
+                },
+                {
+                    "courses_title": "aborig pb health",
+                    "overallSum": 182.5
+                },
+                {
+                    "courses_title": "perinatl epidlgy",
+                    "overallSum": 184
+                },
+                {
+                    "courses_title": "prog pln & eval",
+                    "overallSum": 550.95
+                },
+                {
+                    "courses_title": "hlth srv res i",
+                    "overallSum": 182.13
+                },
+                {
+                    "courses_title": "hlth tech asmnt",
+                    "overallSum": 186.4
+                },
+                {
+                    "courses_title": "com hlth prom",
+                    "overallSum": 1962.4
+                },
+                {
+                    "courses_title": "sbst use addictn",
+                    "overallSum": 188.72
+                },
+                {
+                    "courses_title": "stat infrnce i",
+                    "overallSum": 183.46
+                },
+                {
+                    "courses_title": "stat meth hd bio",
+                    "overallSum": 181.8
+                },
+                {
+                    "courses_title": "tech stat conslt",
+                    "overallSum": 180.58
+                },
+                {
+                    "courses_title": "surgical rsrch",
+                    "overallSum": 1108.7
+                },
+                {
+                    "courses_title": "intro tech prod",
+                    "overallSum": 184.3
+                },
+                {
+                    "courses_title": "sound design",
+                    "overallSum": 367.56
+                },
+                {
+                    "courses_title": "perf study ii",
+                    "overallSum": 182.2
+                },
+                {
+                    "courses_title": "scenery prod i",
+                    "overallSum": 371.06
+                },
+                {
+                    "courses_title": "scene painting i",
+                    "overallSum": 180.92
+                },
+                {
+                    "courses_title": "costume constr",
+                    "overallSum": 369.46
+                },
+                {
+                    "courses_title": "dramaturgy",
+                    "overallSum": 180.28
+                },
+                {
+                    "courses_title": "costum constr ii",
+                    "overallSum": 180.78
+                },
+                {
+                    "courses_title": "bibliog & resrch",
+                    "overallSum": 362.36
+                },
+                {
+                    "courses_title": "sc dsgn std i",
+                    "overallSum": 183
+                },
+                {
+                    "courses_title": "comp animal phyl",
+                    "overallSum": 550.52
+                }
+            ]
+        }
+    }
+}

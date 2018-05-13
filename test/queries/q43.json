@@ -1,0 +1,53 @@
+{
+    "title": "If a GROUP is present, all COLUMNS terms must correspond to either GROUP terms or APPLY items.",
+    "query": {
+        "WHERE": {
+          "OR": [
+            {
+              "AND": [
+                {
+                  "GT": {
+                    "courses_avg": 90
+                  }
+                },
+                {
+                  "IS": {
+                    "courses_dept": "adhe"
+                  }
+                }
+              ]
+            },
+            {
+              "EQ": {
+                "courses_avg": 80
+              }
+            }
+          ]
+        },
+        "OPTIONS": {
+          "COLUMNS": [
+            "courses_title",
+            "courses_dept",
+            "overallSum"
+          ]
+        },
+        "TRANSFORMATIONS": {
+          "GROUP": [
+            "courses_dept"
+          ],
+          "APPLY": [
+            {
+              "overallSum": {
+                "AVG": "courses_avg"
+              }
+            }
+          ]
+        }
+      },
+    "response": {
+        "code": 400,
+        "body": {
+            "error": "vilate: If a GROUP is present, all COLUMNS terms must correspond to either GROUP terms or APPLY items."
+        }
+    }
+}
